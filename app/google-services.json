@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "272514806099",
+    "firebase_url": "https://finoffer-8f72a.firebaseio.com",
+    "project_id": "finoffer-8f72a",
+    "storage_bucket": "finoffer-8f72a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272514806099:android:435ebdfe904e0d4b",
+        "android_client_info": {
+          "package_name": "com.example.ahsanulhoque.finoffer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272514806099-ld3plearqag03e84qfd9peh5slo074b5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ahsanulhoque.finoffer",
+            "certificate_hash": "c7e2f512d5c156a3c0162a06bd56ce50a904cab9"
+          }
+        },
+        {
+          "client_id": "272514806099-ploc0t9urps6g1cs3rvl4ohffdn7l5d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYsio3jCaUMvJofAqaOj4h3WXRK-7bpfA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272514806099-ploc0t9urps6g1cs3rvl4ohffdn7l5d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
