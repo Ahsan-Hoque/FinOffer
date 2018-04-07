@@ -3,7 +3,7 @@ package com.example.ahsanulhoque.finoffer.domain;
 
 public class Merchant {
 
-    private long id;
+    private String id;
     private String brandName;
     private double latitude;
     private double longitude;
@@ -14,7 +14,7 @@ public class Merchant {
     public Merchant() {
     }
 
-    public Merchant(long id, String brandName, double latitude, double longitude, String webLink, String hotNumber, String email) {
+    public Merchant(String id, String brandName, double latitude, double longitude, String webLink, String hotNumber, String email) {
         this.id = id;
         this.brandName = brandName;
         this.latitude = latitude;
@@ -24,11 +24,11 @@ public class Merchant {
         this.email = email;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -3,8 +3,8 @@ package com.example.ahsanulhoque.finoffer.domain;
 
 public class Product {
 
-    private long id;
-    private long merchantId;
+    private String id;
+    private String merchantId;
     private String name;
     private double price;
     private String description;
@@ -15,7 +15,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(long id, long merchantId, String name, double price, String description, double discountRate, String items, long productTypeId) {
+    public Product(String id, String merchantId, String name, double price, String description, double discountRate, String items, long productTypeId) {
         this.id = id;
         this.merchantId = merchantId;
         this.name = name;
@@ -26,19 +26,19 @@ public class Product {
         this.productTypeId = productTypeId;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public long getMerchantId() {
+    public String getMerchantId() {
         return merchantId;
     }
 
-    public void setMerchantId(long merchantId) {
+    public void setMerchantId(String merchantId) {
         this.merchantId = merchantId;
     }
 

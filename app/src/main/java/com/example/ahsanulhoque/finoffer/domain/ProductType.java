@@ -3,7 +3,7 @@ package com.example.ahsanulhoque.finoffer.domain;
 
 public class ProductType {
 
-    private long id;
+    private String id;
     private boolean isClothing;
     private boolean isElectronics;
     private boolean isFood;
@@ -11,18 +11,18 @@ public class ProductType {
     public ProductType() {
     }
 
-    public ProductType(long id, boolean isClothing, boolean isElectronics, boolean isFood) {
+    public ProductType(String id, boolean isClothing, boolean isElectronics, boolean isFood) {
         this.id = id;
         this.isClothing = isClothing;
         this.isElectronics = isElectronics;
         this.isFood = isFood;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
