@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         merchantDatabaseReference = FirebaseDatabase.getInstance().getReference("merchants");
-        addMerchant();
+        //addMerchant();
     }
 
     void addMerchant() {
