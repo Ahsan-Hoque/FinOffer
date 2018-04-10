@@ -10,13 +10,23 @@ public class Product {
     private String description;
     private double discountRate;
     private String items;
-    private long productTypeId;
+    private String productTypeId;
 
     public Product() {
     }
 
-    public Product(String id, String merchantId, String name, double price, String description, double discountRate, String items, long productTypeId) {
+    public Product(String id, String merchantId, String name, double price, String description, double discountRate, String items, String productTypeId) {
         this.id = id;
+        this.merchantId = merchantId;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.discountRate = discountRate;
+        this.items = items;
+        this.productTypeId = productTypeId;
+    }
+
+    public Product(String merchantId, String name, double price, String description, double discountRate, String items, String productTypeId) {
         this.merchantId = merchantId;
         this.name = name;
         this.price = price;
@@ -82,11 +92,11 @@ public class Product {
         this.items = items;
     }
 
-    public long getProductTypeId() {
+    public String getProductTypeId() {
         return productTypeId;
     }
 
-    public void setProductTypeId(long productTypeId) {
+    public void setProductTypeId(String productTypeId) {
         this.productTypeId = productTypeId;
     }
 
