@@ -2,4 +2,6 @@
     <string name="app_name">FinOffer</string>
     <string name="username">Username</string>
     <string name="login">Login</string>
+    <string name="forgotPassword"><u>Forgot password?</u></string>
+    <string name="SignUP"><u>Signup</u></string>
 </resources>
