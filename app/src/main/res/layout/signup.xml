@@ -4,6 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context="com.example.ahsanulhoque.finoffer.authentication.Signup">
 
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/FinLogoIMG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="69dp"
+            app:srcCompat="@drawable/applogo" />
+
+        <EditText
+            android:id="@+id/firstnameET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/FinLogoIMG"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:backgroundTint="#9E9E9E"
+            android:ems="15"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:textCursorDrawable="@null" />
+
+        <EditText
+            android:id="@+id/lastnameET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/firstnameET"
+            android:layout_alignStart="@+id/firstnameET"
+            android:layout_below="@+id/firstnameET"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#9E9E9E"
+            android:ems="15"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:textCursorDrawable="@null" />
+
+        <EditText
+            android:id="@+id/emailET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/lastnameET"
+            android:layout_alignStart="@+id/lastnameET"
+            android:layout_below="@+id/lastnameET"
+            android:layout_marginTop="10dp"
+            android:ems="15"
+            android:textCursorDrawable="@null"
+            android:backgroundTint="#9E9E9E"
+            android:inputType="textEmailAddress"
+            android:hint="E-mail" />
+
+        <EditText
+            android:id="@+id/passET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/emailET"
+            android:layout_alignStart="@+id/emailET"
+            android:layout_below="@+id/emailET"
+            android:layout_marginTop="10dp"
+            android:ems="15"
+            android:textCursorDrawable="@null"
+            android:backgroundTint="#9E9E9E"
+            android:inputType="textPassword"
+            android:hint="Password" />
+
+        <EditText
+            android:id="@+id/confirmPassET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/passET"
+            android:layout_alignStart="@+id/passET"
+            android:layout_below="@+id/passET"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:ems="15"
+            android:textCursorDrawable="@null"
+            android:backgroundTint="#9E9E9E"
+            android:hint="Confirm password" />
+
+        <Button
+            android:id="@+id/signupBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/confirmPassET"
+            android:layout_alignLeft="@+id/confirmPassET"
+            android:layout_alignRight="@+id/confirmPassET"
+            android:layout_alignStart="@+id/confirmPassET"
+            android:layout_below="@+id/confirmPassET"
+            android:background="@drawable/buttonstyle"
+            android:ems="15"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:text="Signup" />
+
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
