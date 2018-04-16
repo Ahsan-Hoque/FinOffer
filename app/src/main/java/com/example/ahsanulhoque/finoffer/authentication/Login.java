@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.ahsanulhoque.finoffer.MainActivity;
@@ -23,7 +22,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        getSupportActionBar().hide();
+        updateStatusBarColor("#FFFFFF");
         SignUPTV = (TextView) findViewById(R.id.SignUPTV);
         LogBTN = (Button) findViewById(R.id.LogBTN);
         SignUPTV.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +31,7 @@ public class Login extends AppCompatActivity {
                 Intent intent = new Intent(Login.this, Signup.class);
                 startActivity(intent);
             }
+
         });
 
         LogBTN.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +43,14 @@ public class Login extends AppCompatActivity {
         });
 
 
+    }
+    public void updateStatusBarColor(String color){// Color must be in hexadecimal fromat
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor(color));
+
+        }
     }
 
 }

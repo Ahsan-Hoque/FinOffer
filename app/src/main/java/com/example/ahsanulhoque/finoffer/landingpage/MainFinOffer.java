@@ -8,28 +8,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
 
 public class MainFinOffer extends AppCompatActivity {
+    Toolbar lTopToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         updateStatusBarColor("#EF6C00");
-        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF9800")));
-//        actionBar.setTitle(Html.fromHtml("<font color='#FFFFFF'>Fin Offer</font>"));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_fin_offer);
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main,menu);
-        return super.onCreateOptionsMenu(menu);
+        lTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(lTopToolbar);
+        getSupportActionBar().setTitle("Fin Offer");
     }
 
     public void updateStatusBarColor(String color){// Color must be in hexadecimal fromat

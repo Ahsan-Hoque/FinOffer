@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".authentication.Login">
+        <activity android:name=".authentication.Login"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,11 +19,14 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="marchent" />
+            android:label="marchent"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".authentication.Signup"
-            android:label="signup" />
+            android:label="signup"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".landingpage.MainFinOffer"
             android:label="landingpage"
             />
