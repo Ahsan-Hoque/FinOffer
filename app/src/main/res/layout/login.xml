@@ -100,6 +100,7 @@
             android:gravity="start"
             android:text="@string/forgotPassword"
             android:textAlignment="center"
+            android:background="@null"
             android:backgroundTint="#9E9E9E"
             android:textSize="18sp" />
 
@@ -111,6 +112,7 @@
             android:layout_alignEnd="@+id/LogBTN"
             android:layout_alignRight="@+id/LogBTN"
             android:textSize="18sp"
+            android:background="@null"
             android:textAlignment="center"
             android:backgroundTint="#9E9E9E"
             android:text="@string/SignUP" />

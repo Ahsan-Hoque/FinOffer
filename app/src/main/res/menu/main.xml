@@ -1,0 +1,9 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_icon"
+        android:gravity="left|start"
+        android:icon="@drawable/ic_menu_black_24dp"
+        android:title="Menu"
+        app:showAsAction="always" />
+</menu>
