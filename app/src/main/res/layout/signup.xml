@@ -77,7 +77,7 @@
             android:textCursorDrawable="@null"
             android:backgroundTint="#9E9E9E"
             android:inputType="textPassword"
-            android:hint="Password" />
+            android:hint="Password (min 6)" />
 
         <EditText
             android:id="@+id/confirmPassET"
@@ -91,7 +91,7 @@
             android:ems="15"
             android:textCursorDrawable="@null"
             android:backgroundTint="#9E9E9E"
-            android:hint="Confirm password" />
+            android:hint="Confirm password (min 6)" />
 
         <Button
             android:id="@+id/signupBTN"
