@@ -6,6 +6,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +20,6 @@ import com.example.ahsanulhoque.finoffer.R;
 
 public class MainFinOffer extends AppCompatActivity {
     Toolbar lTopToolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         updateStatusBarColor("#EF6C00");
@@ -27,6 +28,14 @@ public class MainFinOffer extends AppCompatActivity {
         lTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(lTopToolbar);
         getSupportActionBar().setTitle("Fin Offer");
+
+        RecyclerView itemList = (RecyclerView) findViewById(R.id.itemlist);
+        itemList.setLayoutManager(new LinearLayoutManager(this));
+        String[] titles = {"Fresh Pizza", "Fresh Curry", "Fresh Burger", "C++", "Java", "Python", "Ruby"};
+        itemList.setAdapter(new ListAdapter(titles));
+
+
+
     }
 
     public void updateStatusBarColor(String color){// Color must be in hexadecimal fromat

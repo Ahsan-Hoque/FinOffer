@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryWhite"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp">
+
+
+    <ImageView
+        android:id="@+id/product1IV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/product1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/product1IV"
+        android:layout_toRightOf="@+id/product1IV">
+
+        <TextView
+            android:id="@+id/product1TitleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="18dp"
+            android:gravity="start"
+            android:text="Fresh Pizza"
+            android:textAlignment="viewStart"
+            android:textAllCaps="true"
+            android:textColor="@color/colorActionbar"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/pinIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/product1TitleTV"
+            android:layout_alignStart="@+id/product1TitleTV"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/product1TitleTV"
+            android:layout_weight="0"
+            app:srcCompat="@drawable/pin" />
+
+        <TextView
+            android:id="@+id/locationTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/pinIV"
+            android:layout_toRightOf="@+id/pinIV"
+            android:layout_below="@id/product1TitleTV"
+            android:text="Tokmanni-2, Oulu"
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/priceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/pinIV"
+            android:layout_alignStart="@+id/pinIV"
+            android:layout_below="@+id/pinIV"
+            android:text="$ 1.99"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/strike_through"
+            android:paddingRight="0dp"/>
+
+        <TextView
+            android:id="@+id/newPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/priceTV"
+            android:layout_alignBottom="@+id/priceTV"
+            android:layout_alignEnd="@+id/locationTV"
+            android:layout_alignRight="@+id/locationTV"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="$ 1.50"
+            android:textSize="18sp"
+            android:background="@color/colorActionbar"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</RelativeLayout>
