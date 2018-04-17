@@ -34,6 +34,13 @@ public class MainFinOffer extends AppCompatActivity {
         String[] titles = {"Fresh Pizza", "Fresh Curry", "Fresh Burger", "C++", "Java", "Python", "Ruby"};
         itemList.setAdapter(new ListAdapter(titles));
 
+        RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
+        LinearLayoutManager brandLayoutManager =
+                new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        brandList.setLayoutManager(brandLayoutManager);
+        String[] heading = {"head1", "head2", "head3", "head4", "head5"};
+        brandList.setAdapter(new BrandAdapter(heading));
+
 
 
     }
