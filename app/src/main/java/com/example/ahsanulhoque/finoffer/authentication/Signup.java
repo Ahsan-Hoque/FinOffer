@@ -2,20 +2,20 @@ package com.example.ahsanulhoque.finoffer.authentication;
 
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.ahsanulhoque.finoffer.R;
+import com.example.ahsanulhoque.finoffer.domain.UserProfile;
+import com.example.ahsanulhoque.finoffer.service.UserProfileService;
 import com.example.ahsanulhoque.finoffer.util.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,7 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
-import com.example.ahsanulhoque.finoffer.R;
+
+import java.util.Date;
 
 
 public class Signup extends AppCompatActivity {
@@ -38,12 +39,16 @@ public class Signup extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
 
+    private UserProfileService userProfileService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getSupportActionBar().hide();
         updateStatusBarColor("#FFFFFF");
         setContentView(R.layout.signup);
+
+        userProfileService = new UserProfileService();
 
         firstnameET = (EditText) findViewById(R.id.firstnameET);
         lastnameET = (EditText) findViewById(R.id.lastnameET);
@@ -71,7 +76,7 @@ public class Signup extends AppCompatActivity {
         //checkPasswords();
     }
 
-    public void updateStatusBarColor(String color){// Color must be in hexadecimal fromat
+    public void updateStatusBarColor(String color) {// Color must be in hexadecimal fromat
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -82,13 +87,15 @@ public class Signup extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            firstnameET.setVisibility(View.GONE);
+            /*firstnameET.setVisibility(View.GONE);
             lastnameET.setVisibility(View.GONE);
             emailET.setVisibility(View.GONE);
             passwordET.setVisibility(View.GONE);
             confirmPasswordET.setVisibility(View.GONE);
+            signupBTN.setVisibility(View.GONE);*/
 
-            signupBTN.setVisibility(View.GONE);
+            
+            // redirect to landing page
         } else {
             firstnameET.setVisibility(View.VISIBLE);
             lastnameET.setVisibility(View.VISIBLE);
@@ -142,7 +149,7 @@ public class Signup extends AppCompatActivity {
         return valid;
     }
 
-    private void createAccount(String email, String password) {
+    private void createAccount(final String email, String password) {
 
         if (!validateForm()) {
             return;
@@ -154,9 +161,16 @@ public class Signup extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                     updateUI(user);
-                    // move user to landing page
+                    // fill userProfile info's
+                    UserProfile userProfile = new UserProfile();
+                    userProfile.setFirstName(firstnameET.getText().toString().trim());
+                    userProfile.setLastName(lastnameET.getText().toString().trim());
+                    userProfile.setEmail(email);
+                    userProfile.setCreated(new Date());
+
+                    userProfileService.isAccountAdded(userProfile);
                 } else {
-                    FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                    FirebaseAuthException e = (FirebaseAuthException) task.getException();
                     e.printStackTrace();
                     Toast.makeText(Signup.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     updateUI(null);
