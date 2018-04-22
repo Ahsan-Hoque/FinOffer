@@ -1,5 +1,6 @@
 package com.example.ahsanulhoque.finoffer.authentication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.domain.UserProfile;
+import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
 import com.example.ahsanulhoque.finoffer.service.UserProfileService;
 import com.example.ahsanulhoque.finoffer.util.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -81,29 +83,22 @@ public class Signup extends AppCompatActivity {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor(color));
-
         }
     }
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            /*firstnameET.setVisibility(View.GONE);
-            lastnameET.setVisibility(View.GONE);
-            emailET.setVisibility(View.GONE);
-            passwordET.setVisibility(View.GONE);
-            confirmPasswordET.setVisibility(View.GONE);
-            signupBTN.setVisibility(View.GONE);*/
-
-            
             // redirect to landing page
+            Intent intentMain = new Intent(Signup.this, MainFinOffer.class);
+            startActivity(intentMain);
         } else {
-            firstnameET.setVisibility(View.VISIBLE);
+            /*firstnameET.setVisibility(View.VISIBLE);
             lastnameET.setVisibility(View.VISIBLE);
             emailET.setVisibility(View.VISIBLE);
             passwordET.setVisibility(View.VISIBLE);
             confirmPasswordET.setVisibility(View.VISIBLE);
 
-            signupBTN.setVisibility(View.VISIBLE);
+            signupBTN.setVisibility(View.VISIBLE);*/
         }
     }
 
@@ -160,7 +155,7 @@ public class Signup extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = firebaseAuth.getCurrentUser();
-                    updateUI(user);
+
                     // fill userProfile info's
                     UserProfile userProfile = new UserProfile();
                     userProfile.setId(user.getUid());
@@ -168,8 +163,10 @@ public class Signup extends AppCompatActivity {
                     userProfile.setLastName(lastnameET.getText().toString().trim());
                     userProfile.setEmail(email);
                     userProfile.setCreated(new Date());
-
                     userProfileService.createUserProfile(userProfile);
+
+                    updateUI(user);
+
                 } else {
                     FirebaseAuthException e = (FirebaseAuthException) task.getException();
                     e.printStackTrace();

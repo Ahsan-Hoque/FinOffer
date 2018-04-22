@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 import com.example.ahsanulhoque.finoffer.R;
 
-/**
- * Created by ahsanulhoque on 17/04/2018.
- */
 
 public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandListViewHolder> {
     private String[] data;
@@ -37,7 +34,6 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandListVie
     public int getItemCount() {
         return data.length;
     }
-
 
     public class BrandListViewHolder extends RecyclerView.ViewHolder{
         ImageView brandImg;

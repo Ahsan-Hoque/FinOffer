@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 import com.example.ahsanulhoque.finoffer.R;
 
-/**
- * Created by ahsanulhoque on 17/04/2018.
- */
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHolder> {
 
@@ -19,7 +16,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
     public ListAdapter(String[] data){
         this. data = data;
     }
-
 
     @Override
     public ItemListviewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -47,7 +43,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.product1TitleTV);
             image = (ImageView) itemView.findViewById(R.id.product1IV);
-
         }
     }
 }
