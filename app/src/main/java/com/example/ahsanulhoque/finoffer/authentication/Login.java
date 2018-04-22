@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ahsanulhoque.finoffer.ProductDetails;
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
 import com.example.ahsanulhoque.finoffer.util.Utils;
@@ -61,14 +62,6 @@ public class Login extends AppCompatActivity {
 
         });
 
-        ForgotPassTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Login.this, ProductDetails.class);
-                startActivity(intent);
-            }
-        });
-
         LogBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,8 +74,8 @@ public class Login extends AppCompatActivity {
         ForgotPassTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intentMain = new Intent(Login.this, MainFinOffer.class);
-                startActivity(intentMain);*/
+                Intent intent = new Intent(Login.this, ProductDetails.class);
+                startActivity(intent);
             }
         });
 
