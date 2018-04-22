@@ -28,8 +28,8 @@
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name=".landingpage.MainFinOffer"
-            android:label="landingpage"
-            />
+            android:label="landingpage" />
+        <activity android:name=".ProductDetails"></activity>
     </application>
 
 </manifest>
