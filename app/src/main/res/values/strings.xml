@@ -4,4 +4,6 @@
     <string name="login">Login</string>
     <string name="forgotPassword"><u>Forgot password?</u></string>
     <string name="SignUP"><u>Signup</u></string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

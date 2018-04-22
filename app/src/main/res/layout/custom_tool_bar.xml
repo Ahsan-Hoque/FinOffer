@@ -1,10 +1,11 @@
 <android.support.v7.widget.Toolbar
 android:id="@+id/my_toolbar"
 android:layout_width="match_parent"
-android:layout_height="?attr/actionBarSize"
+android:layout_height="70dp"
 android:background="@color/colorActionbar"
+android:fitsSystemWindows="true"
 xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto">
+>
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -17,12 +18,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/menuBTN"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:background="@null"
             android:cropToPadding="true"
-            app:srcCompat="@drawable/hamburgericon" />
+            android:src="@drawable/hamburgericon" />
 
         <TextView
             android:id="@+id/textView"
@@ -30,8 +32,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="20dp"
-            android:layout_marginTop="13dp"
             android:text="Fin Offer"
+            android:layout_marginTop="20dp"
             android:textColor="@color/colorPrimaryWhite"
             android:textSize="20sp" />
 
@@ -41,7 +43,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_weight="0"
             android:layout_marginRight="15dp"
             android:paddingTop="5dp"
-            app:srcCompat="@drawable/search" />
+            android:src="@drawable/search" />
 
         <ImageView
             android:layout_width="20dp"
@@ -49,7 +51,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_weight="0"
             android:layout_marginRight="15dp"
             android:paddingTop="5dp"
-            app:srcCompat="@drawable/notification" />
+            android:src="@drawable/notification" />
 
     </LinearLayout>
 </LinearLayout>
