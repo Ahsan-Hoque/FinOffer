@@ -163,12 +163,13 @@ public class Signup extends AppCompatActivity {
                     updateUI(user);
                     // fill userProfile info's
                     UserProfile userProfile = new UserProfile();
+                    userProfile.setId(user.getUid());
                     userProfile.setFirstName(firstnameET.getText().toString().trim());
                     userProfile.setLastName(lastnameET.getText().toString().trim());
                     userProfile.setEmail(email);
                     userProfile.setCreated(new Date());
 
-                    userProfileService.isAccountAdded(userProfile);
+                    userProfileService.createUserProfile(userProfile);
                 } else {
                     FirebaseAuthException e = (FirebaseAuthException) task.getException();
                     e.printStackTrace();

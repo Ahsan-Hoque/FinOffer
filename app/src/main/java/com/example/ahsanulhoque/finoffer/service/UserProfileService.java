@@ -6,28 +6,31 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
 public class UserProfileService {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("userProfile");
 
-    public boolean isAccountAdded(UserProfile userProfile) {
-        final boolean[] isAdded = new boolean[1];
+    public void createUserProfile(UserProfile userProfile) {
 
-        String id = databaseReference.push().getKey();
-        userProfile.setId(id);
+        //String id = databaseReference.push().getKey();
+        //userProfile.setId(id);
 
-        databaseReference.child(id).setValue(userProfile, new DatabaseReference.CompletionListener() {
+        databaseReference.child(userProfile.getId()).setValue(userProfile, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                if (databaseError != null) {
-                    isAdded[0] = true;
-                } else {
-                    isAdded[0] = false;
-                }
+                // it is not working
             }
         });
+    }
 
-        return isAdded[0];
+    public List<UserProfile> getUserProfiles() {
+        return null;
+    }
+
+    public UserProfile getUserProfile(String id) {
+        return null;
     }
 
 }
