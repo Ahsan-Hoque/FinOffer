@@ -121,11 +121,12 @@ public class MainFinOffer extends AppCompatActivity {
                         // add navigation drawer item onclick method here
                         Intent i = new Intent(MainFinOffer.this, AddProduct.class);
                         startActivity(i);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.dash:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
                 }
                 return false;

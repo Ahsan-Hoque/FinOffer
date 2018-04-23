@@ -1,5 +1,6 @@
 package com.example.ahsanulhoque.finoffer;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
@@ -9,10 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+
+import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
 
 public class AddProduct extends AppCompatActivity {
 
@@ -41,6 +45,33 @@ public class AddProduct extends AppCompatActivity {
         menuBTN.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 pDrawerlayout.openDrawer(Gravity.LEFT);
+            }
+        });
+
+        initInstances();
+    }
+
+    private void initInstances() {
+        navigation = (NavigationView) findViewById(R.id.navVW);
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                switch (id) {
+                    case R.id.dash:
+                        //Do some thing here
+                        // add navigation drawer item onclick method here
+                        Intent i = new Intent(AddProduct.this, MainFinOffer.class);
+                        startActivity(i);
+                        pDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
+                    case R.id.addPRD:
+                        //Do some thing here
+                        // add navigation drawer item onclick method here
+//                        Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
+                        break;
+                }
+                return false;
             }
         });
     }
