@@ -30,7 +30,10 @@
             android:name=".landingpage.MainFinOffer"
             android:label="landingpage"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddProduct"></activity>
+        <activity
+            android:name=".AddProduct"
+            android:label="addproduct"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

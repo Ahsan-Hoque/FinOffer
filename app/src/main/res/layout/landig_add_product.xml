@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ahsanulhoque.finoffer.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include layout="@layout/custom_tool_bar"></include>
 
@@ -12,26 +10,22 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="112dp"
-        tools:ignore="MissingConstraints">
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/productName"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_above="@+id/productDescription"
             android:hint="Product Name"
             android:inputType="textPersonName"
+            android:layout_marginTop="90dp"
             android:text="" />
 
         <EditText
             android:id="@+id/productDescription"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_above="@+id/regularPrice"
+            android:layout_below="@+id/productName"
             android:hint="Product Description"
             android:inputType="textPersonName"
             android:text="" />
@@ -40,7 +34,7 @@
             android:id="@+id/regularPrice"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_above="@+id/discountIn"
+            android:layout_below="@+id/productDescription"
             android:hint="Regular Price"
             android:inputType="textPersonName"
             android:text="" />
@@ -49,7 +43,7 @@
             android:id="@+id/discountIn"
             android:layout_width="180dp"
             android:layout_height="55dp"
-            android:layout_above="@+id/location"
+            android:layout_below="@+id/regularPrice"
             android:hint="Discount in %"
             android:inputType="textPersonName"
             android:text="" />
@@ -58,8 +52,11 @@
             android:id="@+id/price"
             android:layout_width="150dp"
             android:layout_height="55dp"
-            android:layout_above="@+id/location"
-            android:layout_marginLeft="190dp"
+            android:layout_below="@+id/regularPrice"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/discountIn"
+            android:layout_toRightOf="@+id/discountIn"
             android:hint="price"
             android:inputType="textPersonName"
             android:text="" />
@@ -68,18 +65,18 @@
             android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_above="@+id/imageView"
+            android:layout_below="@+id/price"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:hint="Location"
             android:inputType="textPersonName"
-             />
+            />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_above="@+id/addProduct"
+            android:layout_below="@+id/location"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="10dp"
@@ -111,5 +108,4 @@
             android:textColor="@color/colorPrimaryWhite" />
 
     </RelativeLayout>
-
 </android.support.constraint.ConstraintLayout>
