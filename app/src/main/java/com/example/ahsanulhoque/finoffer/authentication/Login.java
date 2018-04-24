@@ -146,13 +146,13 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            System.out.println("----------------------------------------------------------------------------------------------");
+                            /*System.out.println("----------------------------------------------------------------------------------------------");
                             System.out.println(user.getDisplayName());
                             System.out.println(user.getEmail());
                             System.out.println(user.getPhotoUrl());
                             System.out.println(user.getUid());
                             System.out.println(user.getPhoneNumber());
-                            System.out.println("----------------------------------------------------------------------------------------------");
+                            System.out.println("----------------------------------------------------------------------------------------------");*/
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -163,11 +163,6 @@ public class Login extends AppCompatActivity {
                     }
                 });
         // [END sign_in_with_email]
-    }
-
-    private void signOut() {
-        firebaseAuth.signOut();
-        updateUI(null);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.ahsanulhoque.finoffer.landingpage;
 
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -47,18 +48,33 @@ public class MainFinOffer extends AppCompatActivity {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         System.out.println("------------------------------------------------------------------------");
         System.out.println(firebaseUser.getUid());
-        System.out.println(new UserProfileService().getUserProfile(firebaseUser.getUid()));
+        //System.out.println(new LoginedUser(firebaseUser.getUid()).execute());
         System.out.println("------------------------------------------------------------------------");
     }
 
-    public void updateStatusBarColor(String color){
+    public void updateStatusBarColor(String color) {
         // Color must be in hexadecimal format
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor(color));
-
         }
     }
 
+    /*private class LoginedUser extends AsyncTask<String, Void, UserProfile> {
+        public LoginedUser(String uid) {
+        }
+
+        protected UserProfile doInBackground(String... id) {
+            return new UserProfileService().getUserProfile(id[0]);
+        }
+
+        protected void onProgressUpdate() {
+            //setProgressPercent(progress[0]);
+        }
+
+        protected void onPostExecute(UserProfile userProfile) {
+            System.out.println(userProfile);
+        }
+    }*/
 }
