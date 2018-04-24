@@ -17,6 +17,8 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.ahsanulhoque.finoffer.authentication.Login;
+import com.example.ahsanulhoque.finoffer.authentication.Singout;
 import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
 
 public class AddProduct extends AppCompatActivity {
@@ -74,7 +76,9 @@ public class AddProduct extends AppCompatActivity {
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Toast.makeText(AddProduct.this, "Logout", Toast.LENGTH_LONG).show();
+                        new Singout().signOut();
+                        Intent intentMain = new Intent(AddProduct.this, Login.class);
+                        startActivity(intentMain);
                     break;
                 }
                 return false;

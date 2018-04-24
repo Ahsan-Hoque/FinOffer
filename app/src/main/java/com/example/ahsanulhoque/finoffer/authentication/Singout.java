@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
@@ -26,18 +27,20 @@ public class Singout extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
     }*/
 
-    private void updateUI(FirebaseUser user) {
-        EmailET = (EditText) findViewById(R.id.EmailET);
-        PassET = (EditText) findViewById(R.id.PassET);
+ /*   private void updateUI(FirebaseUser user) {
+
+        LayoutInflater factory = getLayoutInflater();
+        View view = factory.inflate(R.layout.login, null);
+        EmailET = (EditText) view.findViewById(R.id.emailET);
+        PassET = (EditText) view.findViewById(R.id.PassET);
 
         EmailET.setText("");
         PassET.setText("");
-    }
+    }*/
 
-    private void signOut() {
+    public void signOut() {
         //firebaseAuth.signOut();
         FirebaseAuth.getInstance().signOut();
-        updateUI(null);
     }
 
 }

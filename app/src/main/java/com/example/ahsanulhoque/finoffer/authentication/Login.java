@@ -122,8 +122,11 @@ public class Login extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             // redirect to landing page
+            EmailET.setText("");
+            PassET.setText("");
             Intent intentMain = new Intent(Login.this, MainFinOffer.class);
             startActivity(intentMain);
+
         } else {
             EmailET.setVisibility(View.VISIBLE);
             PassET.setVisibility(View.VISIBLE);
