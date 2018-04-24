@@ -64,6 +64,22 @@ public class MainFinOffer extends AppCompatActivity {
         String[] titles = {"Fresh Pizza", "Fresh Curry", "Fresh Burger", "C++", "Java", "Python", "Ruby"};
         itemList.setAdapter(new ListAdapter(titles));
 
+//        for list click event
+        ListAdapter mAdapter = new ListAdapter();
+
+        mAdapter.setOnItemClickListener(new ListAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Toast.makeText(MainFinOffer.this, "click item", Toast.LENGTH_LONG);
+            }
+
+            @Override
+            public void onItemLongClick(int position, View v) {
+                Toast.makeText(MainFinOffer.this, "click item long click", Toast.LENGTH_LONG);
+            }
+        });
+
+
         RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
         LinearLayoutManager brandLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         brandList.setLayoutManager(brandLayoutManager);
@@ -145,6 +161,8 @@ public class MainFinOffer extends AppCompatActivity {
         });
 
     }
+
+
 
     /*private class LoginedUser extends AsyncTask<String, Void, UserProfile> {
         public LoginedUser(String uid) {
