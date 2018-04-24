@@ -1,173 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryBack">
-
-    <include layout="@layout/custom_tool_bar" />
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/itemlist"
-        android:layout_width="wrap_content"
-        android:orientation="vertical"
-        android:layout_height="300dp"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        android:layout_marginTop="15dp"/>
-
-    <RelativeLayout
-        android:id="@+id/midLine"
+    <android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_layout"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/itemlist">
-        <TextView
-            android:id="@+id/middleline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SHOPS"
-            android:textAllCaps="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:textAlignment="center"/>
-        <TextView
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/middleline"
-            android:layout_alignStart="@+id/middleline"
-            android:background="@drawable/strike_through"
-            android:gravity="start"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="15dp"/>
+            android:layout_height="match_parent">
 
-    </RelativeLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/brandList"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/midLine"
-        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        android:layout_marginTop="15dp" />
+            <include layout="@layout/landing_page" />
 
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/footerView"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorPrimaryWhite"
-        app:layout_constraintTop_toBottomOf="@+id/brandList">
+        </LinearLayout>
 
-
-        <RelativeLayout
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navVW"
+            app:headerLayout="@layout/drawerheader"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@color/colorPrimaryWhite"
+            app:itemTextColor="#000000"
+            app:itemIconTint="@color/colorPrimaryDark"
+            app:menu="@menu/drawermenu"
+            android:layout_gravity="start"/>
 
-            <ImageView
-                android:id="@+id/firstIMGV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="11dp"
-                app:srcCompat="@drawable/lockicon" />
+    </android.support.v4.widget.DrawerLayout>
 
-            <ImageView
-                android:id="@+id/secndIMGV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/firstIMGV"
-                android:layout_marginLeft="65dp"
-                android:layout_marginStart="65dp"
-                android:layout_toEndOf="@+id/firstIMGV"
-                android:layout_toRightOf="@+id/firstIMGV"
-                android:paddingLeft="18dp"
-                app:srcCompat="@drawable/lockicon" />
-
-            <ImageView
-                android:id="@+id/thrdIMGV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/secndIMGV"
-                android:layout_marginLeft="65dp"
-                android:layout_marginStart="65dp"
-                android:layout_toEndOf="@+id/secndIMGV"
-                android:layout_toRightOf="@+id/secndIMGV"
-                android:paddingLeft="15dp"
-                app:srcCompat="@drawable/lockicon" />
-
-            <ImageView
-                android:id="@+id/frthIMGV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/thrdIMGV"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                app:srcCompat="@drawable/lockicon" />
-
-            <TextView
-                android:id="@+id/frstTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/firstIMGV"
-                android:layout_marginTop="15dp"
-                android:textAlignment="center"
-                android:layout_marginLeft="20dp"
-                android:text="All" />
-
-            <TextView
-                android:id="@+id/scndTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/frstTV"
-                android:layout_alignBottom="@+id/frstTV"
-                android:layout_alignLeft="@+id/secndIMGV"
-                android:layout_alignStart="@+id/secndIMGV"
-                android:layout_marginLeft="15dp"
-                android:text="Food" />
-
-            <TextView
-                android:id="@+id/thrdTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/scndTV"
-                android:layout_alignBottom="@+id/scndTV"
-                android:layout_alignLeft="@+id/thrdIMGV"
-                android:layout_alignStart="@+id/thrdIMGV"
-                android:textAlignment="center"
-                android:text="Clothing" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_alignTop="@+id/thrdTV"
-                android:text="Electronics" />
-        </RelativeLayout>
-    </android.support.constraint.ConstraintLayout>
-
-
-
-
-</android.support.constraint.ConstraintLayout>
