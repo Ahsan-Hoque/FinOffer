@@ -21,15 +21,16 @@ import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.AddProduct;
 import com.example.ahsanulhoque.finoffer.R;
+import com.example.ahsanulhoque.finoffer.authentication.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainFinOffer extends AppCompatActivity {
+
     DrawerLayout mDrawerlayout;
     ActionBarDrawerToggle mToggle;
     NavigationView navigation;
-
 
     private Toolbar lTopToolbar;
     //private FirebaseAuth firebaseAuth;
@@ -49,7 +50,6 @@ public class MainFinOffer extends AppCompatActivity {
         mToggle.syncState();
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         //for custom toolbar
         lTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -96,7 +96,6 @@ public class MainFinOffer extends AppCompatActivity {
         String[] heading = {"head1", "head2", "head3", "head4", "head5"};
         brandList.setAdapter(new BrandAdapter(heading));*/
 
-
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         System.out.println("------------------------------------------------------------------------");
         System.out.println(firebaseUser.getUid());
@@ -135,6 +134,10 @@ public class MainFinOffer extends AppCompatActivity {
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here
+
+                        Intent intentMain = new Intent(MainFinOffer.this, Login.class);
+                        startActivity(intentMain);
+
                         Toast.makeText(MainFinOffer.this, "Logout", Toast.LENGTH_LONG).show();
                         break;
                 }

@@ -32,9 +32,6 @@ public class Singout extends AppCompatActivity {
 
         EmailET.setText("");
         PassET.setText("");
-
-        Intent intentMain = new Intent(Singout.this, Login.class);
-        startActivity(intentMain);
     }
 
     private void signOut() {
