@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
 
@@ -70,6 +71,11 @@ public class AddProduct extends AppCompatActivity {
                         // add navigation drawer item onclick method here
 //                        Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
+                    case R.id.lgot:
+                        //Do some thing here
+                        // add navigation drawer item onclick method here
+                        Toast.makeText(AddProduct.this, "Logout", Toast.LENGTH_LONG).show();
+                    break;
                 }
                 return false;
             }

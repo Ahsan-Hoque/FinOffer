@@ -48,7 +48,6 @@ public class MainFinOffer extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_fin_offer);
-        super.onCreate(savedInstanceState);
 //        statusbar color
         updateStatusBarColor("#EF6C00");
 
@@ -147,6 +146,11 @@ public class MainFinOffer extends AppCompatActivity {
                         // add navigation drawer item onclick method here
 //                        Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
+                    case R.id.lgot:
+                        //Do some thing here
+                        // add navigation drawer item onclick method here
+                        Toast.makeText(MainFinOffer.this, "Logout", Toast.LENGTH_LONG).show();
+                    break;
                 }
                 return false;
             }
