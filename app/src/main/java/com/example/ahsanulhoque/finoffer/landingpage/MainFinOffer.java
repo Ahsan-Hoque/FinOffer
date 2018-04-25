@@ -65,7 +65,7 @@ public class MainFinOffer extends AppCompatActivity {
         itemList.setAdapter(new ListAdapter(titles));
 
 //        for list click event
-        ListAdapter mAdapter = new ListAdapter();
+        /*ListAdapter mAdapter = new ListAdapter();
 
         mAdapter.setOnItemClickListener(new ListAdapter.ClickListener() {
             @Override
@@ -77,7 +77,7 @@ public class MainFinOffer extends AppCompatActivity {
             public void onItemLongClick(int position, View v) {
                 Toast.makeText(MainFinOffer.this, "click item long click", Toast.LENGTH_LONG);
             }
-        });
+        });*/
 
 
         RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);

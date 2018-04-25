@@ -1,18 +1,22 @@
 package com.example.ahsanulhoque.finoffer.landingpage;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.ahsanulhoque.finoffer.AddProduct;
 import com.example.ahsanulhoque.finoffer.R;
 
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHolder> {
-    private static ClickListener clickListener;
-    private String[] data;
+    public String[] data;
     public ListAdapter(String[] data){
         this. data = data;
     }
@@ -35,18 +39,37 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
         return data.length;
     }
 
-  /*  public class ItemListviewHolder extends RecyclerView.ViewHolder{
+    public static class ItemListviewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView image;
         TextView title;
+        public Context context;
 
         public ItemListviewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.product1TitleTV);
             image = (ImageView) itemView.findViewById(R.id.product1IV);
+            title.setOnClickListener(this);
         }
-    }*/
 
-    public static class ItemListviewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+        @Override
+        public void onClick(View view) {
+            int position  =   getAdapterPosition();
+            Log.w("aaaaaaaaaaaaaaa", "Selected=>"+position+"id:"+view.getId());
+
+            Intent intent = new Intent(context, AddProduct.class);
+            context.startActivity(intent);
+
+            switch (view.getId()){
+                case R.id.product1IV:
+                    Log.w("aaaaaaaaaaaaaaa", "Selected"+position);
+                    break;
+                 default:
+                     Log.w("aaaaaaaaaaaaaaa", "Selected"+position+ "id:"+view.getId());
+            }
+        }
+    }
+
+    /*public static class ItemListviewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView name;
         ImageView image;
         TextView title;
@@ -79,6 +102,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
     public interface ClickListener {
         void onItemClick(int position, View v);
         void onItemLongClick(int position, View v);
-    }
+    }*/
+
+
 }
 
