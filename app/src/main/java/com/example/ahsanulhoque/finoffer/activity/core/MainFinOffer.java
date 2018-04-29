@@ -1,4 +1,4 @@
-package com.example.ahsanulhoque.finoffer.landingpage;
+package com.example.ahsanulhoque.finoffer.activity.core;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,12 +17,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.example.ahsanulhoque.finoffer.AddProduct;
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.authentication.Login;
-import com.example.ahsanulhoque.finoffer.authentication.Singout;
+import com.example.ahsanulhoque.finoffer.adapter.BrandAdapter;
+import com.example.ahsanulhoque.finoffer.adapter.ListAdapter;
+import com.example.ahsanulhoque.finoffer.activity.authentication.LogIn;
+import com.example.ahsanulhoque.finoffer.activity.authentication.SingOut;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -135,8 +135,8 @@ public class MainFinOffer extends AppCompatActivity {
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        new Singout().signOut();
-                        Intent intentMain = new Intent(MainFinOffer.this, Login.class);
+                        new SingOut().signOut();
+                        Intent intentMain = new Intent(MainFinOffer.this, LogIn.class);
                         startActivity(intentMain);
                         break;
                 }

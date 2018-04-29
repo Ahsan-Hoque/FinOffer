@@ -1,4 +1,4 @@
-package com.example.ahsanulhoque.finoffer.authentication;
+package com.example.ahsanulhoque.finoffer.activity.authentication;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,10 +15,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
+import com.example.ahsanulhoque.finoffer.activity.core.MainFinOffer;
 import com.example.ahsanulhoque.finoffer.domain.UserProfile;
-import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
 import com.example.ahsanulhoque.finoffer.service.UserProfileService;
-import com.example.ahsanulhoque.finoffer.util.Utils;
+import com.example.ahsanulhoque.finoffer.utility.FormUtility;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,15 +29,15 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Date;
 
 
-public class Signup extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
-    private EditText firstnameET;
-    private EditText lastnameET;
+    private EditText firstNameET;
+    private EditText lastNameET;
     private EditText emailET;
     private EditText passwordET;
     private EditText confirmPasswordET;
 
-    private Button signupBTN;
+    private Button signUpBTN;
 
     private FirebaseAuth firebaseAuth;
 
@@ -52,17 +52,17 @@ public class Signup extends AppCompatActivity {
 
         userProfileService = new UserProfileService();
 
-        firstnameET = (EditText) findViewById(R.id.firstnameET);
-        lastnameET = (EditText) findViewById(R.id.lastnameET);
+        firstNameET = (EditText) findViewById(R.id.firstnameET);
+        lastNameET = (EditText) findViewById(R.id.lastnameET);
         emailET = (EditText) findViewById(R.id.emailET);
         passwordET = (EditText) findViewById(R.id.passET);
         confirmPasswordET = (EditText) findViewById(R.id.confirmPassET);
 
-        signupBTN = (Button) findViewById(R.id.signupBTN);
+        signUpBTN = (Button) findViewById(R.id.signupBTN);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        signupBTN.setOnClickListener(new View.OnClickListener() {
+        signUpBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createAccount(emailET.getText().toString(), passwordET.getText().toString());
@@ -89,16 +89,10 @@ public class Signup extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             // redirect to landing page
-            Intent intentMain = new Intent(Signup.this, MainFinOffer.class);
+            Intent intentMain = new Intent(SignUp.this, MainFinOffer.class);
             startActivity(intentMain);
         } else {
-            /*firstnameET.setVisibility(View.VISIBLE);
-            lastnameET.setVisibility(View.VISIBLE);
-            emailET.setVisibility(View.VISIBLE);
-            passwordET.setVisibility(View.VISIBLE);
-            confirmPasswordET.setVisibility(View.VISIBLE);
-
-            signupBTN.setVisibility(View.VISIBLE);*/
+            // do something!
         }
     }
 
@@ -109,7 +103,7 @@ public class Signup extends AppCompatActivity {
         if (TextUtils.isEmpty(email)) {
             emailET.setError("Required!");
             valid = false;
-        } else if (!Utils.isEmailValid(email)) {
+        } else if (!FormUtility.isEmailValid(email)) {
             emailET.setError("Enter a valid email!");
             valid = false;
         } else {
@@ -120,7 +114,7 @@ public class Signup extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
             passwordET.setError("Required!");
             valid = false;
-        } else if (!Utils.isPasswordValid(password)) {
+        } else if (!FormUtility.isPasswordValid(password)) {
             passwordET.setError("At least 6 characters required!");
             valid = false;
         } else {
@@ -131,7 +125,7 @@ public class Signup extends AppCompatActivity {
         if (TextUtils.isEmpty(confirmPassword)) {
             confirmPasswordET.setError("Required.");
             valid = false;
-        } else if (!Utils.isPasswordValid(confirmPassword)) {
+        } else if (!FormUtility.isPasswordValid(confirmPassword)) {
             confirmPasswordET.setError("At least 6 characters required!");
             valid = false;
         } else if (!password.equals(confirmPassword)) {
@@ -159,8 +153,8 @@ public class Signup extends AppCompatActivity {
                     // fill userProfile info's
                     UserProfile userProfile = new UserProfile();
                     userProfile.setId(user.getUid());
-                    userProfile.setFirstName(firstnameET.getText().toString().trim());
-                    userProfile.setLastName(lastnameET.getText().toString().trim());
+                    userProfile.setFirstName(firstNameET.getText().toString().trim());
+                    userProfile.setLastName(lastNameET.getText().toString().trim());
                     userProfile.setEmail(email);
                     userProfile.setCreated(new Date());
                     userProfileService.createUserProfile(userProfile);
@@ -170,7 +164,7 @@ public class Signup extends AppCompatActivity {
                 } else {
                     FirebaseAuthException e = (FirebaseAuthException) task.getException();
                     e.printStackTrace();
-                    Toast.makeText(Signup.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     updateUI(null);
                 }
             }
@@ -184,7 +178,7 @@ public class Signup extends AppCompatActivity {
                 String strPass1 = passwordET.getText().toString();
                 String strPass2 = confirmPasswordET.getText().toString();
                 if (strPass2.length() >= 6 && !strPass1.equals(strPass2)) {
-                    Toast.makeText(Signup.this, "Password not matched!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "Password not matched!", Toast.LENGTH_SHORT).show();
                 }
             }
 

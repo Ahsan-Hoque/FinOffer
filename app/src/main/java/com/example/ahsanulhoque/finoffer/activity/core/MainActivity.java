@@ -1,4 +1,4 @@
-package com.example.ahsanulhoque.finoffer;
+package com.example.ahsanulhoque.finoffer.activity.core;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.domain.Merchant;
 import com.example.ahsanulhoque.finoffer.domain.Product;
 import com.example.ahsanulhoque.finoffer.service.ProductService;

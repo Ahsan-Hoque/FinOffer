@@ -1,4 +1,4 @@
-package com.example.ahsanulhoque.finoffer.util;
+package com.example.ahsanulhoque.finoffer.utility;
 
 import android.util.Patterns;
 
@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Utils {
+public class FormUtility {
 
     public static boolean isEmailValid(String email){
         Pattern pattern = Patterns.EMAIL_ADDRESS;
