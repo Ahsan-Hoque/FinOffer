@@ -11,7 +11,6 @@ import com.example.ahsanulhoque.finoffer.R;
 
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHolder> {
-    private static ClickListener clickListener;
     private String[] data;
     public ListAdapter(String[] data){
         this. data = data;
@@ -35,7 +34,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
         return data.length;
     }
 
-  /*  public class ItemListviewHolder extends RecyclerView.ViewHolder{
+    public class ItemListviewHolder extends RecyclerView.ViewHolder{
         ImageView image;
         TextView title;
 
@@ -44,41 +43,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
             title = (TextView) itemView.findViewById(R.id.product1TitleTV);
             image = (ImageView) itemView.findViewById(R.id.product1IV);
         }
-    }*/
-
-    public static class ItemListviewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        TextView name;
-        ImageView image;
-        TextView title;
-
-        public ItemListviewHolder(View itemView) {
-            super(itemView);
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
-//            title = (TextView) itemView.findViewById(R.id.product1TitleTV);
-            image = (ImageView) itemView.findViewById(R.id.product1IV);
-            title = (TextView) itemView.findViewById(R.id.product1TitleTV);
-        }
-
-        @Override
-        public void onClick(View v) {
-            clickListener.onItemClick(getAdapterPosition(), v);
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            clickListener.onItemLongClick(getAdapterPosition(), v);
-            return false;
-        }
     }
 
-    public void setOnItemClickListener(ClickListener clickListener) {
-        ListAdapter.clickListener = clickListener;
-    }
 
-    public interface ClickListener {
-        void onItemClick(int position, View v);
-        void onItemLongClick(int position, View v);
-    }
 }
 
