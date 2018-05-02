@@ -1,4 +1,4 @@
-package com.example.ahsanulhoque.finoffer.authentication;
+package com.example.ahsanulhoque.finoffer.activity.authentication;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,10 +15,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ahsanulhoque.finoffer.ProductDetails;
+import com.example.ahsanulhoque.finoffer.activity.core.ProductDetails;
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
-import com.example.ahsanulhoque.finoffer.util.Utils;
+import com.example.ahsanulhoque.finoffer.activity.core.MainFinOffer;
+import com.example.ahsanulhoque.finoffer.utility.FormUtility;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class Login extends AppCompatActivity {
+public class LogIn extends AppCompatActivity {
 
     private EditText EmailET;
     private EditText PassET;
@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
         SignUPTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, Signup.class);
+                Intent intent = new Intent(LogIn.this, SignUp.class);
                 startActivity(intent);
             }
 
@@ -65,7 +65,7 @@ public class Login extends AppCompatActivity {
         LogBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intentMain = new Intent(Login.this, MainFinOffer.class);
+                /*Intent intentMain = new Intent(LogIn.this, MainFinOffer.class);
                 startActivity(intentMain);*/
                 signIn(EmailET.getText().toString().trim(), PassET.getText().toString().trim());
             }
@@ -74,11 +74,10 @@ public class Login extends AppCompatActivity {
         ForgotPassTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, ProductDetails.class);
+                Intent intent = new Intent(LogIn.this, ProductDetails.class);
                 startActivity(intent);
             }
         });
-
 
     }
 
@@ -98,7 +97,7 @@ public class Login extends AppCompatActivity {
         if (TextUtils.isEmpty(email)) {
             EmailET.setError("Required!");
             valid = false;
-        } else if (!Utils.isEmailValid(email)) {
+        } else if (!FormUtility.isEmailValid(email)) {
             EmailET.setError("Enter a valid email!");
             valid = false;
         } else {
@@ -109,7 +108,7 @@ public class Login extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
             PassET.setError("Required!");
             valid = false;
-        } else if (!Utils.isPasswordValid(password)) {
+        } else if (!FormUtility.isPasswordValid(password)) {
             PassET.setError("At least 6 characters required!");
             valid = false;
         } else {
@@ -124,7 +123,7 @@ public class Login extends AppCompatActivity {
             // redirect to landing page
             EmailET.setText("");
             PassET.setText("");
-            Intent intentMain = new Intent(Login.this, MainFinOffer.class);
+            Intent intentMain = new Intent(LogIn.this, MainFinOffer.class);
             startActivity(intentMain);
 
         } else {
@@ -149,17 +148,10 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            /*System.out.println("----------------------------------------------------------------------------------------------");
-                            System.out.println(user.getDisplayName());
-                            System.out.println(user.getEmail());
-                            System.out.println(user.getPhotoUrl());
-                            System.out.println(user.getUid());
-                            System.out.println(user.getPhoneNumber());
-                            System.out.println("----------------------------------------------------------------------------------------------");*/
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(Login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LogIn.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
                         // [END_EXCLUDE]

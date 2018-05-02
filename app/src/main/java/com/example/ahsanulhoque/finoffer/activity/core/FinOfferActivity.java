@@ -1,7 +1,9 @@
-package com.example.ahsanulhoque.finoffer;
+package com.example.ahsanulhoque.finoffer.activity.core;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.ahsanulhoque.finoffer.R;
 
 public class FinOfferActivity extends AppCompatActivity {
 

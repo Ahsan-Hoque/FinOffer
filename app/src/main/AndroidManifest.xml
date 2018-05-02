@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".authentication.Login"
+            android:name=".activity.authentication.LogIn"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,22 +19,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:label="marchent"
+            android:name=".activity.core.MainActivity"
+            android:label="merchant"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name=".authentication.Signup"
-            android:label="signup"
+            android:name=".activity.authentication.SignUp"
+            android:label="signUp"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name=".landingpage.MainFinOffer"
-            android:label="landingpage"
+            android:name=".activity.core.MainFinOffer"
+            android:label="landingPage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddProduct"
-            android:label="addproduct"
+            android:name=".activity.core.AddProduct"
+            android:label="addProduct"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ProductDetails"></activity>
+        <activity android:name=".activity.core.ProductDetails"></activity>
     </application>
 
 </manifest>

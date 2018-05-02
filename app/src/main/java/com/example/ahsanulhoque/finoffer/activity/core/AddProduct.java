@@ -1,4 +1,4 @@
-package com.example.ahsanulhoque.finoffer;
+package com.example.ahsanulhoque.finoffer.activity.core;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,11 +15,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.example.ahsanulhoque.finoffer.authentication.Login;
-import com.example.ahsanulhoque.finoffer.authentication.Singout;
-import com.example.ahsanulhoque.finoffer.landingpage.MainFinOffer;
+import com.example.ahsanulhoque.finoffer.R;
+import com.example.ahsanulhoque.finoffer.activity.authentication.LogIn;
+import com.example.ahsanulhoque.finoffer.activity.authentication.SingOut;
 
 public class AddProduct extends AppCompatActivity {
 
@@ -76,8 +75,8 @@ public class AddProduct extends AppCompatActivity {
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        new Singout().signOut();
-                        Intent intentMain = new Intent(AddProduct.this, Login.class);
+                        new SingOut().signOut();
+                        Intent intentMain = new Intent(AddProduct.this, LogIn.class);
                         startActivity(intentMain);
                     break;
                 }
