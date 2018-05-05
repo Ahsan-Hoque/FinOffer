@@ -93,15 +93,28 @@
             android:backgroundTint="#9E9E9E"
             android:hint="Confirm password (min 6)" />
 
+        <ProgressBar
+            android:id="@+id/signUpProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/confirmPassET"
+            android:layout_alignStart="@+id/confirmPassET"
+            android:layout_alignLeft="@+id/confirmPassET"
+            android:layout_alignRight="@+id/confirmPassET"
+            android:layout_alignEnd="@+id/confirmPassET"
+            android:layout_marginTop="10dp"
+            android:ems="15"/>
+
         <Button
             android:id="@+id/signupBTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/confirmPassET"
-            android:layout_alignLeft="@+id/confirmPassET"
-            android:layout_alignRight="@+id/confirmPassET"
-            android:layout_alignStart="@+id/confirmPassET"
-            android:layout_below="@+id/confirmPassET"
+            android:layout_alignStart="@+id/signUpProgressBar"
+            android:layout_alignLeft="@+id/signUpProgressBar"
+            android:layout_alignRight="@+id/signUpProgressBar"
+            android:layout_alignEnd="@+id/signUpProgressBar"
+            android:layout_below="@+id/signUpProgressBar"
             android:background="@drawable/buttonstyle"
             android:ems="15"
             android:textColor="#ffffff"
