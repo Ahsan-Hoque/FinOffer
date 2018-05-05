@@ -69,7 +69,6 @@ public class SignUp extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         progressBar = (ProgressBar) findViewById(R.id.signUpProgressBar);
-        progressBar.setMax(100);
         progressBar.setVisibility(View.INVISIBLE);
 
         signUpBTN.setOnClickListener(new View.OnClickListener() {
@@ -179,6 +178,7 @@ public class SignUp extends AppCompatActivity {
             isAdded = false;
             // progress bar
             progressBar.setVisibility(View.VISIBLE);
+            progressBar.setMax(100);
             progressBar.setProgress(0);
         }
 
@@ -229,21 +229,5 @@ public class SignUp extends AppCompatActivity {
             }
         }
     }
-
-    /*private void checkPasswords() {
-        confirmPasswordET.addTextChangedListener(new TextWatcher() {
-
-            public void afterTextChanged(Editable s) {
-                String strPass1 = passwordET.getText().toString();
-                String strPass2 = confirmPasswordET.getText().toString();
-                if (strPass2.length() >= 6 && !strPass1.equals(strPass2)) {
-                    Toast.makeText(SignUp.this, "Password not matched!", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-        });
-    }*/
 
 }
