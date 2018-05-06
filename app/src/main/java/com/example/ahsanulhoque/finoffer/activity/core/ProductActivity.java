@@ -103,7 +103,7 @@ public class ProductActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String merchantId = null;
                 String name = productName.getText().toString().trim();
-                double price = Double.parseDouble(regularPrice.getText().toString().trim());
+                double price = Double.parseDouble(editTextPrice.getText().toString().trim());
                 String description = productDescription.getText().toString().trim();
                 double discountRate = Double.parseDouble(discountIn.getText().toString().trim());
                 double regularPrc = Double.parseDouble(regularPrice.getText().toString().trim());
