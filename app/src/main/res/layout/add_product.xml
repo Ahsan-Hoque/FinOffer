@@ -8,10 +8,7 @@
     android:layout_height="match_parent"
     tools:openDrawer="start">
 
-
-        <include layout="@layout/landig_add_product" />
-
-
+    <include layout="@layout/landig_add_product" />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navVW"

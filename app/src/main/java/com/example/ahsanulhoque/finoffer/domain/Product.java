@@ -9,29 +9,32 @@ public class Product {
     private double price;
     private String description;
     private double discountRate;
+    private double regularPrice;
     private String items;
     private String productTypeId;
 
     public Product() {
     }
 
-    public Product(String id, String merchantId, String name, double price, String description, double discountRate, String items, String productTypeId) {
+    public Product(String id, String merchantId, String name, double price, String description, double discountRate, double regularPrice, String items, String productTypeId) {
         this.id = id;
         this.merchantId = merchantId;
         this.name = name;
         this.price = price;
         this.description = description;
         this.discountRate = discountRate;
+        this.regularPrice = regularPrice;
         this.items = items;
         this.productTypeId = productTypeId;
     }
 
-    public Product(String merchantId, String name, double price, String description, double discountRate, String items, String productTypeId) {
+    public Product(String merchantId, String name, double price, String description, double discountRate, double regularPrice, String items, String productTypeId) {
         this.merchantId = merchantId;
         this.name = name;
         this.price = price;
         this.description = description;
         this.discountRate = discountRate;
+        this.regularPrice = regularPrice;
         this.items = items;
         this.productTypeId = productTypeId;
     }
@@ -84,6 +87,14 @@ public class Product {
         this.discountRate = discountRate;
     }
 
+    public double getRegularPrice() {
+        return regularPrice;
+    }
+
+    public void setRegularPrice(double regularPrice) {
+        this.regularPrice = regularPrice;
+    }
+
     public String getItems() {
         return items;
     }
@@ -109,6 +120,7 @@ public class Product {
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 ", discountRate=" + discountRate +
+                ", regularPrice=" + regularPrice +
                 ", items='" + items + '\'' +
                 ", productTypeId=" + productTypeId +
                 '}';

@@ -23,8 +23,6 @@ import com.example.ahsanulhoque.finoffer.adapter.BrandAdapter;
 import com.example.ahsanulhoque.finoffer.adapter.ListAdapter;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogIn;
 import com.example.ahsanulhoque.finoffer.activity.authentication.SingOut;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainFinOffer extends AppCompatActivity {
@@ -34,7 +32,6 @@ public class MainFinOffer extends AppCompatActivity {
     NavigationView navigation;
 
     private Toolbar lTopToolbar;
-    //private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,21 +47,15 @@ public class MainFinOffer extends AppCompatActivity {
         mDrawerlayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         //for custom toolbar
         lTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(lTopToolbar);
-
-        //getSupportActionBar().setTitle("Fin Offer");
 
         //recycler view
         RecyclerView itemList = (RecyclerView) findViewById(R.id.itemlist);
         itemList.setLayoutManager(new LinearLayoutManager(this));
         String[] titles = {"Fresh Pizza", "Fresh Curry", "Fresh Burger", "C++", "Java", "Python", "Ruby"};
         itemList.setAdapter(new ListAdapter(titles));
-
-
 
         RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
         LinearLayoutManager brandLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -81,29 +72,6 @@ public class MainFinOffer extends AppCompatActivity {
         });
 
         initInstances();
-
-       /* updateStatusBarColor("#EF6C00");
-        lTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(lTopToolbar);
-        getSupportActionBar().setTitle("Fin Offer");
-
-        RecyclerView itemList = (RecyclerView) findViewById(R.id.itemlist);
-        itemList.setLayoutManager(new LinearLayoutManager(this));
-        String[] titles = {"Fresh Pizza", "Fresh Curry", "Fresh Burger", "C++", "Java", "Python", "Ruby"};
-        itemList.setAdapter(new ListAdapter(titles));
-
-        RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
-        LinearLayoutManager brandLayoutManager =
-                new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        brandList.setLayoutManager(brandLayoutManager);
-        String[] heading = {"head1", "head2", "head3", "head4", "head5"};
-        brandList.setAdapter(new BrandAdapter(heading));*/
-
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        System.out.println("------------------------------------------------------------------------");
-        System.out.println(firebaseUser.getUid());
-        //System.out.println(new LoginedUser(firebaseUser.getUid()).execute());
-        System.out.println("------------------------------------------------------------------------");
     }
 
     public void updateStatusBarColor(String color) {
@@ -125,7 +93,7 @@ public class MainFinOffer extends AppCompatActivity {
                     case R.id.addPRD:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Intent i = new Intent(MainFinOffer.this, AddProduct.class);
+                        Intent i = new Intent(MainFinOffer.this, ProductActivity.class);
                         startActivity(i);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
@@ -148,23 +116,5 @@ public class MainFinOffer extends AppCompatActivity {
 
     }
 
-
-
-    /*private class LoginedUser extends AsyncTask<String, Void, UserProfile> {
-        public LoginedUser(String uid) {
-        }
-
-        protected UserProfile doInBackground(String... id) {
-            return new UserProfileService().getUserProfile(id[0]);
-        }
-
-        protected void onProgressUpdate() {
-            //setProgressPercent(progress[0]);
-        }
-
-        protected void onPostExecute(UserProfile userProfile) {
-            System.out.println(userProfile);
-        }
-    }*/
 
 }

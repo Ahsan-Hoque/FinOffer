@@ -157,7 +157,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    new UserProfileGeneratorTask().execute(email);
+                    new AddUserProfileTask().execute(email);
                 } else {
                     FirebaseAuthException e = (FirebaseAuthException) task.getException();
                     e.printStackTrace();
@@ -168,7 +168,7 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-    public class UserProfileGeneratorTask extends AsyncTask<String, Integer, Void> {
+    public class AddUserProfileTask extends AsyncTask<String, Integer, Void> {
         boolean isAdded;
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
@@ -221,10 +221,10 @@ public class SignUp extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            // progress bar
+            progressBar.setVisibility(View.GONE);
             if (isAdded) {
                 isAdded = false;
-                // progress bar
-                progressBar.setVisibility(View.GONE);
                 updateUI(user);
             }
         }

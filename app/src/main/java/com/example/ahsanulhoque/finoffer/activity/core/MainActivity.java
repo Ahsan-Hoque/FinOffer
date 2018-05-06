@@ -65,9 +65,10 @@ public class MainActivity extends AppCompatActivity {
         double price = Double.parseDouble(regularPrice.getText().toString().trim());
         String description = productDescription.getText().toString().trim();
         double discountRate = Double.parseDouble(discountIn.getText().toString().trim());
+        double regularPrc = Double.parseDouble(regularPrice.getText().toString().trim());
         String items = description;
         String productTypeId = null;
-        Product product = new Product(merchantId, name, price, description, discountRate, items, productTypeId);
+        Product product = new Product(merchantId, name, price, description, discountRate, regularPrc, items, productTypeId);
 
         boolean isProductAdded = productService.isProductAdded(product);
 

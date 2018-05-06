@@ -36,7 +36,7 @@
             android:layout_height="55dp"
             android:layout_below="@+id/productDescription"
             android:hint="Regular Price"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:text="" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:layout_height="55dp"
             android:layout_below="@+id/regularPrice"
             android:hint="Discount in %"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:text="" />
 
         <EditText
@@ -58,7 +58,7 @@
             android:layout_toEndOf="@+id/discountIn"
             android:layout_toRightOf="@+id/discountIn"
             android:hint="price"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:text="" />
 
         <EditText
@@ -95,6 +95,19 @@
             android:background="@drawable/buttonstyle"
             android:text="Add Image" />
 
+        <ProgressBar
+            android:id="@+id/addProductProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addImage"
+            android:layout_alignStart="@+id/location"
+            android:layout_alignLeft="@+id/location"
+            android:layout_alignRight="@+id/location"
+            android:layout_alignEnd="@+id/location"
+            android:layout_marginTop="10dp"
+            android:ems="15"/>
+
         <Button
             android:id="@+id/addProduct"
             android:layout_width="300dp"
@@ -102,8 +115,9 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
+            android:layout_below="@id/addProductProgressBar"
             android:background="@drawable/buttonstyle"
-            android:text="Publish Product"
+            android:text="Add Product"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryWhite" />
 
