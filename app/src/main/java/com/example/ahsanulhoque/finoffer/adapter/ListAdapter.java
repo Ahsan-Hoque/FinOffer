@@ -11,9 +11,15 @@ import com.example.ahsanulhoque.finoffer.R;
 
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHolder> {
-    private String[] data;
-    public ListAdapter(String[] data){
-        this. data = data;
+    private String[] names;
+    private String[] regPrices;
+    private String[] newPrices;
+    private String[] locations;
+    public ListAdapter(String[] names, String[] regPrices, String[] newPrices, String[] locations){
+        this.names = names;
+        this.regPrices = regPrices;
+        this.newPrices = newPrices;
+        this.locations = locations;
     }
 
     @Override
@@ -25,23 +31,35 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
 
     @Override
     public void onBindViewHolder(ItemListviewHolder holder, int position) {
-        String title = data[position];
+        String title = names[position];
+        String regPrice = regPrices[position];
+        String newPrice = newPrices[position];
+        String location = locations[position];
         holder.title.setText(title);
+        holder.regularPrice.setText(regPrice);
+        holder.price.setText(newPrice);
+        holder.location.setText(location);
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return names.length;
     }
 
     public class ItemListviewHolder extends RecyclerView.ViewHolder{
         ImageView image;
         TextView title;
+        TextView location;
+        TextView regularPrice;
+        TextView price;
 
         public ItemListviewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.product1TitleTV);
             image = (ImageView) itemView.findViewById(R.id.product1IV);
+            location = (TextView) itemView.findViewById(R.id.locationTV);
+            regularPrice = (TextView) itemView.findViewById(R.id.priceTV);
+            price = (TextView) itemView.findViewById(R.id.newPriceTV);
         }
     }
 

@@ -11,12 +11,13 @@ public class Product {
     private double discountRate;
     private double regularPrice;
     private String items;
+    private String location;
     private String productTypeId;
 
     public Product() {
     }
 
-    public Product(String id, String merchantId, String name, double price, String description, double discountRate, double regularPrice, String items, String productTypeId) {
+    public Product(String id, String merchantId, String name, double price, String description, double discountRate, double regularPrice, String items, String location, String productTypeId) {
         this.id = id;
         this.merchantId = merchantId;
         this.name = name;
@@ -25,10 +26,11 @@ public class Product {
         this.discountRate = discountRate;
         this.regularPrice = regularPrice;
         this.items = items;
+        this.location = location;
         this.productTypeId = productTypeId;
     }
 
-    public Product(String merchantId, String name, double price, String description, double discountRate, double regularPrice, String items, String productTypeId) {
+    public Product(String merchantId, String name, double price, String description, double discountRate, double regularPrice, String items, String location, String productTypeId) {
         this.merchantId = merchantId;
         this.name = name;
         this.price = price;
@@ -36,6 +38,7 @@ public class Product {
         this.discountRate = discountRate;
         this.regularPrice = regularPrice;
         this.items = items;
+        this.location = location;
         this.productTypeId = productTypeId;
     }
 
@@ -103,6 +106,14 @@ public class Product {
         this.items = items;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public String getProductTypeId() {
         return productTypeId;
     }
@@ -122,6 +133,7 @@ public class Product {
                 ", discountRate=" + discountRate +
                 ", regularPrice=" + regularPrice +
                 ", items='" + items + '\'' +
+                ", location='" + location + '\'' +
                 ", productTypeId=" + productTypeId +
                 '}';
     }

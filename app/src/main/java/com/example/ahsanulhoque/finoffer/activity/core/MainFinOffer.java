@@ -2,6 +2,7 @@ package com.example.ahsanulhoque.finoffer.activity.core;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -17,21 +18,40 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.adapter.BrandAdapter;
 import com.example.ahsanulhoque.finoffer.adapter.ListAdapter;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogIn;
 import com.example.ahsanulhoque.finoffer.activity.authentication.SingOut;
+import com.example.ahsanulhoque.finoffer.domain.Product;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class MainFinOffer extends AppCompatActivity {
 
-    DrawerLayout mDrawerlayout;
-    ActionBarDrawerToggle mToggle;
-    NavigationView navigation;
+    private DrawerLayout mDrawerlayout;
+    private ActionBarDrawerToggle mToggle;
+    private NavigationView navigation;
 
     private Toolbar lTopToolbar;
+
+    private RecyclerView itemList;
+
+    // progress bar
+    private Integer count;
+    private ProgressBar progressBar;
+
+    // firebase db
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("products");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +71,13 @@ public class MainFinOffer extends AppCompatActivity {
         lTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(lTopToolbar);
 
+        progressBar = (ProgressBar) findViewById(R.id.itemListProgressBar);
+        progressBar.setVisibility(View.INVISIBLE);
+
         //recycler view
-        RecyclerView itemList = (RecyclerView) findViewById(R.id.itemlist);
+        itemList = (RecyclerView) findViewById(R.id.itemlist);
         itemList.setLayoutManager(new LinearLayoutManager(this));
-        String[] titles = {"Fresh Pizza", "Fresh Curry", "Fresh Burger", "C++", "Java", "Python", "Ruby"};
-        itemList.setAdapter(new ListAdapter(titles));
+        new TitleLoadingTask().execute();
 
         RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
         LinearLayoutManager brandLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -114,6 +136,88 @@ public class MainFinOffer extends AppCompatActivity {
             }
         });
 
+    }
+
+    private class TitleLoadingTask extends AsyncTask<Void, Integer, Void> {
+        private ArrayList<String> names;
+        private ArrayList<String> locations;
+        private ArrayList<String> regPrices;
+        private ArrayList<String> newPrices;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // progress bar
+            progressBar.setVisibility(View.VISIBLE);
+            progressBar.setMax(100);
+            progressBar.setProgress(0);
+            /*names = null;
+            locations = null;
+            regPrices = null;
+            newPrices = null;*/
+            names = new ArrayList<>();
+            locations = new ArrayList<>();
+            regPrices = new ArrayList<>();
+            newPrices = new ArrayList<>();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Query query = databaseReference;
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        for (DataSnapshot issue : dataSnapshot.getChildren()) {
+                            // do something with the individual "issues"
+                            Product product = issue.getValue(Product.class);
+                            names.add(product.getName());
+                            locations.add(product.getLocation());
+                            regPrices.add(String.valueOf("$ " + product.getRegularPrice()));
+                            newPrices.add(String.valueOf("$ " + product.getPrice()));
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+            // progress bar
+            for (count = 1; count <= 5; count++) {
+                try {
+                    Thread.sleep(500);
+                    publishProgress(20 * count);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            // progress bar
+            progressBar.setProgress(values[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            // progress bar
+            progressBar.setVisibility(View.GONE);
+            String[] productNames = new String[names.size()];
+            String[] localStores = new String[locations.size()];
+            String[] productRegPrc = new String[regPrices.size()];
+            String[] productNewPrc = new String[newPrices.size()];
+            productNames = names.toArray(productNames);
+            localStores = locations.toArray(localStores);
+            productRegPrc = regPrices.toArray(productRegPrc);
+            productNewPrc = newPrices.toArray(productNewPrc);
+            itemList.setAdapter(new ListAdapter(productNames, productRegPrc, productNewPrc, localStores));
+        }
     }
 
 

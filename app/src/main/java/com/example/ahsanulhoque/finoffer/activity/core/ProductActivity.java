@@ -108,8 +108,9 @@ public class ProductActivity extends AppCompatActivity {
                 double discountRate = Double.parseDouble(discountIn.getText().toString().trim());
                 double regularPrc = Double.parseDouble(regularPrice.getText().toString().trim());
                 String items = description;
+                String localStore = location.getText().toString();
                 String productTypeId = null;
-                Product product = new Product(merchantId, name, price, description, discountRate, regularPrc, items, productTypeId);
+                Product product = new Product(merchantId, name, price, description, discountRate, regularPrc, items, localStore, productTypeId);
                 new AddProductTask().execute(product);
             }
         });
