@@ -42,8 +42,8 @@
             android:background="#d2d2d2"
             android:textColor="#000000"
             android:paddingLeft="15dp"
-            android:lines="4"
-            android:text="This is a app where user can add three categories of product as follows: Electronics, Food and Clothing. User will find a minimum feature in this version. In the next version user will find several features for example searching, notification, location and different types of user rile will be defined in the next release."
+            android:lines="6"
+            android:text="This is an app where user can add three categories of product as follows: Electronics, Food and Clothing. User will find a minimum feature in this version. In the next version user will find several features for example searching, notification, location and different types of user rile will be defined in the next release."
             android:textAlignment="center"
             android:gravity="fill_horizontal"/>
 
