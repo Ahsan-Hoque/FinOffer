@@ -34,6 +34,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainFinOffer extends AppCompatActivity {
@@ -139,10 +140,11 @@ public class MainFinOffer extends AppCompatActivity {
     }
 
     private class TitleLoadingTask extends AsyncTask<Void, Integer, Void> {
-        private ArrayList<String> names;
+        /*private ArrayList<String> names;
         private ArrayList<String> locations;
         private ArrayList<String> regPrices;
-        private ArrayList<String> newPrices;
+        private ArrayList<String> newPrices;*/
+        private List<Product> productList;
 
         @Override
         protected void onPreExecute() {
@@ -155,10 +157,11 @@ public class MainFinOffer extends AppCompatActivity {
             locations = null;
             regPrices = null;
             newPrices = null;*/
-            names = new ArrayList<>();
+            /*names = new ArrayList<>();
             locations = new ArrayList<>();
             regPrices = new ArrayList<>();
-            newPrices = new ArrayList<>();
+            newPrices = new ArrayList<>();*/
+            productList = new ArrayList<>();
         }
 
         @Override
@@ -171,10 +174,11 @@ public class MainFinOffer extends AppCompatActivity {
                         for (DataSnapshot issue : dataSnapshot.getChildren()) {
                             // do something with the individual "issues"
                             Product product = issue.getValue(Product.class);
-                            names.add(product.getName());
+                            /*names.add(product.getName());
                             locations.add(product.getLocation());
                             regPrices.add(String.valueOf("$ " + product.getRegularPrice()));
-                            newPrices.add(String.valueOf("$ " + product.getPrice()));
+                            newPrices.add(String.valueOf("$ " + product.getPrice()));*/
+                            productList.add(product);
                         }
                     }
                 }
@@ -208,7 +212,7 @@ public class MainFinOffer extends AppCompatActivity {
             super.onPostExecute(aVoid);
             // progress bar
             progressBar.setVisibility(View.GONE);
-            String[] productNames = new String[names.size()];
+            /*String[] productNames = new String[names.size()];
             String[] localStores = new String[locations.size()];
             String[] productRegPrc = new String[regPrices.size()];
             String[] productNewPrc = new String[newPrices.size()];
@@ -216,7 +220,8 @@ public class MainFinOffer extends AppCompatActivity {
             localStores = locations.toArray(localStores);
             productRegPrc = regPrices.toArray(productRegPrc);
             productNewPrc = newPrices.toArray(productNewPrc);
-            itemList.setAdapter(new ListAdapter(productNames, productRegPrc, productNewPrc, localStores));
+            itemList.setAdapter(new ListAdapter(productNames, productRegPrc, productNewPrc, localStores));*/
+            itemList.setAdapter(new ListAdapter(productList));
         }
     }
 

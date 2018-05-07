@@ -8,19 +8,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ahsanulhoque.finoffer.R;
+import com.example.ahsanulhoque.finoffer.domain.Product;
+
+import java.util.List;
 
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHolder> {
-    private String[] names;
+    /*private String[] names;
     private String[] regPrices;
     private String[] newPrices;
-    private String[] locations;
+    private String[] locations;*/
+    private List<Product> productList;
 
-    public ListAdapter(String[] names, String[] regPrices, String[] newPrices, String[] locations) {
+    /*public ListAdapter(String[] names, String[] regPrices, String[] newPrices, String[] locations) {
         this.names = names;
         this.regPrices = regPrices;
         this.newPrices = newPrices;
         this.locations = locations;
+    }*/
+
+    public ListAdapter(List<Product> productList) {
+        this.productList = productList;
     }
 
     @Override
@@ -32,10 +40,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
 
     @Override
     public void onBindViewHolder(ItemListviewHolder holder, int position) {
-        String title = names[position];
+        Product product = productList.get(position);
+        /*String title = names[position];
         String regPrice = regPrices[position];
         String newPrice = newPrices[position];
-        String location = locations[position];
+        String location = locations[position];*/
+        String title = product.getName();
+        String regPrice = String.valueOf(product.getRegularPrice());
+        String newPrice = String.valueOf(product.getPrice());
+        String location = product.getLocation();
         holder.title.setText(title);
         holder.regularPrice.setText(regPrice);
         holder.price.setText(newPrice);
@@ -44,7 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
 
     @Override
     public int getItemCount() {
-        return names.length;
+        return productList.size();
     }
 
     public class ItemListviewHolder extends RecyclerView.ViewHolder {
