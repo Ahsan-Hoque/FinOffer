@@ -19,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogInActivity;
@@ -126,6 +127,11 @@ public class MainFinOffer extends AppCompatActivity {
                         //Do some thing here
                         // add navigation drawer item onclick method here
                         //Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.faq:
+                        Intent k = new Intent(MainFinOffer.this, FaqActivity.class);
+                        startActivity(k);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.lgot:
                         //Do some thing here

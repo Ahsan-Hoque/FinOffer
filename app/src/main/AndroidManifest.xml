@@ -21,11 +21,11 @@
         <activity
             android:name=".activity.core.MainActivity"
             android:label="merchant"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activity.authentication.SignUpActivity"
             android:label="signUp"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".activity.core.MainFinOffer"
             android:label="landingPage"
@@ -33,9 +33,12 @@
         <activity
             android:name=".activity.core.ProductActivity"
             android:label="addProduct"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.core.ProductDetails"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.core.FaqActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>

@@ -143,6 +143,11 @@ public class ProductActivity extends AppCompatActivity {
                         // add navigation drawer item onclick method here
                         //Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
+                    case R.id.faq:
+                        Intent k = new Intent(ProductActivity.this, FaqActivity.class);
+                        startActivity(k);
+                        pDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here

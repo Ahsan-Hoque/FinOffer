@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahsanulhoque.finoffer.activity.core.FaqActivity">
+    <include layout="@layout/custom_tool_bar"></include>
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="90dp"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/faqTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:text="Welcome, You can find here some basic answers about basic functionality of FinOffer App"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/faq1TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/faqTV"
+            android:layout_marginTop="60dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:paddingLeft="15dp"
+            android:text="How can I add new product?" />
+
+        <TextView
+            android:id="@+id/faq2TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq1TV"
+            android:layout_marginTop="10dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="You can click add product form left drwaer. " />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/faq2TV"
+            android:layout_alignStart="@+id/faq2TV"
+            android:layout_below="@+id/faq2TV"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:paddingLeft="15dp"
+            android:text="How can I see one product details?" />
+
+        <TextView
+            android:id="@+id/faq3TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_marginTop="10dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="You can see the product details by clicking the product." />
+
+        <TextView
+            android:id="@+id/faq4TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/faq3TV"
+            android:layout_alignStart="@+id/faq3TV"
+            android:layout_below="@+id/faq3TV"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:paddingLeft="15dp"
+            android:text="How can I search one Item?" />
+
+        <TextView
+            android:id="@+id/faq5TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq4TV"
+            android:layout_marginTop="10dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="Search is not added yet. You can findit in the next version." />
+
+        <TextView
+            android:id="@+id/faq6TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq5TV"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:paddingLeft="15dp"
+            android:text="What is the purpose of notification icon?" />
+
+        <TextView
+            android:id="@+id/faq7TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq6TV"
+            android:layout_marginTop="10dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="You will get new item notificatin through the con in the next version." />
+
+        <TextView
+            android:id="@+id/faq8TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq7TV"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:paddingLeft="15dp"
+            android:text="Is there any map service available?" />
+
+        <TextView
+            android:id="@+id/faq9TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq8TV"
+            android:layout_marginTop="10dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="Not yet, But you will find it in the next releases." />
+
+        <TextView
+            android:id="@+id/faq10TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq9TV"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:paddingLeft="15dp"
+            android:text="What about different language support?" />
+
+        <TextView
+            android:id="@+id/faq11TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/faq10TV"
+            android:layout_marginTop="10dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="Yes, we are going to add Finnish and Swedish." />
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
