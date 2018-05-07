@@ -34,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -202,8 +203,9 @@ public class MainFinOffer extends AppCompatActivity {
                 @Override
                 public void onClick(View view, int position) {
                     Product product = productList.get(position);
-                    //Toast.makeText(getApplicationContext(), product.getName() + " is selected!", Toast.LENGTH_SHORT).show();
-
+                    Intent productDetailsIntent = new Intent(MainFinOffer.this, ProductDetails.class);
+                    productDetailsIntent.putExtra("product", product);
+                    startActivity(productDetailsIntent);
                 }
 
                 @Override

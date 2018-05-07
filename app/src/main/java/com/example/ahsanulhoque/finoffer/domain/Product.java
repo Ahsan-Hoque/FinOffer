@@ -1,7 +1,9 @@
 package com.example.ahsanulhoque.finoffer.domain;
 
+import java.io.Serializable;
 
-public class Product {
+
+public class Product implements Serializable{
 
     private String id;
     private String merchantId;

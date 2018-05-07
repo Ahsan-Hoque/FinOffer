@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.activity.core.MainFinOffer;
-import com.example.ahsanulhoque.finoffer.activity.core.ProductDetails;
 import com.example.ahsanulhoque.finoffer.utility.FormUtility;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -65,8 +64,6 @@ public class LogInActivity extends AppCompatActivity {
         LogBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intentMain = new Intent(LogInActivity.this, MainFinOffer.class);
-                startActivity(intentMain);*/
                 signIn(EmailET.getText().toString().trim(), PassET.getText().toString().trim());
             }
         });
@@ -74,8 +71,7 @@ public class LogInActivity extends AppCompatActivity {
         ForgotPassTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogInActivity.this, ProductDetails.class);
-                startActivity(intent);
+                // do something ...
             }
         });
 
