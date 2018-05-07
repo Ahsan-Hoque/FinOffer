@@ -21,11 +21,12 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.activity.authentication.LogIn;
-import com.example.ahsanulhoque.finoffer.activity.authentication.SingOut;
+import com.example.ahsanulhoque.finoffer.activity.authentication.LogInActivity;
+import com.example.ahsanulhoque.finoffer.activity.authentication.SingOutActivity;
 import com.example.ahsanulhoque.finoffer.adapter.BrandAdapter;
 import com.example.ahsanulhoque.finoffer.adapter.ListAdapter;
 import com.example.ahsanulhoque.finoffer.domain.Product;
+import com.example.ahsanulhoque.finoffer.helper.RecyclerTouchListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,7 +46,7 @@ public class MainFinOffer extends AppCompatActivity {
 
     private Toolbar lTopToolbar;
 
-    private RecyclerView itemList;
+    private RecyclerView itemListRecyclerView;
 
     // progress bar
     private Integer count;
@@ -76,8 +77,8 @@ public class MainFinOffer extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
 
         //recycler view
-        itemList = (RecyclerView) findViewById(R.id.itemlist);
-        itemList.setLayoutManager(new LinearLayoutManager(this));
+        itemListRecyclerView = (RecyclerView) findViewById(R.id.itemlist);
+        itemListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         new TitleLoadingTask().execute();
 
         RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
@@ -128,8 +129,8 @@ public class MainFinOffer extends AppCompatActivity {
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        new SingOut().signOut();
-                        Intent intentMain = new Intent(MainFinOffer.this, LogIn.class);
+                        new SingOutActivity().signOut();
+                        Intent intentMain = new Intent(MainFinOffer.this, LogInActivity.class);
                         startActivity(intentMain);
                         break;
                 }
@@ -196,7 +197,20 @@ public class MainFinOffer extends AppCompatActivity {
             super.onPostExecute(aVoid);
             // progress bar
             progressBar.setVisibility(View.GONE);
-            itemList.setAdapter(new ListAdapter(productList));
+            itemListRecyclerView.setAdapter(new ListAdapter(productList));
+            itemListRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), itemListRecyclerView, new RecyclerTouchListener.ClickListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    Product product = productList.get(position);
+                    //Toast.makeText(getApplicationContext(), product.getName() + " is selected!", Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onLongClick(View view, int position) {
+
+                }
+            }));
         }
     }
 

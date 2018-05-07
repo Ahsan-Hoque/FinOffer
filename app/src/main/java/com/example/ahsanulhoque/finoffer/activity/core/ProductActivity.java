@@ -26,8 +26,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.activity.authentication.LogIn;
-import com.example.ahsanulhoque.finoffer.activity.authentication.SingOut;
+import com.example.ahsanulhoque.finoffer.activity.authentication.LogInActivity;
+import com.example.ahsanulhoque.finoffer.activity.authentication.SingOutActivity;
 import com.example.ahsanulhoque.finoffer.domain.Product;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -146,8 +146,8 @@ public class ProductActivity extends AppCompatActivity {
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        new SingOut().signOut();
-                        Intent intentMain = new Intent(ProductActivity.this, LogIn.class);
+                        new SingOutActivity().signOut();
+                        Intent intentMain = new Intent(ProductActivity.this, LogInActivity.class);
                         startActivity(intentMain);
                         break;
                 }
