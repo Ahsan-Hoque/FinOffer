@@ -3,19 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:background="@drawable/applogo"
+    android:layout_height="170dp"
+    android:background="#d2d2d2"
     android:padding="20dp">
     <ImageView
-        android:src="@drawable/product1"
-        android:layout_width="75dp"
-        android:layout_height="75dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="product"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"/>
+        android:src="@drawable/applogo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

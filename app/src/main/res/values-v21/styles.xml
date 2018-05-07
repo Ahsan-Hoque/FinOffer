@@ -19,4 +19,8 @@
 
     </style>
 
+    <style name="AppTheme.AccentActionBar">
+        <item name="colorAccent">@color/colorBrandOrange</item> <!-- Whatever color you want-->
+    </style>
+
 </resources>

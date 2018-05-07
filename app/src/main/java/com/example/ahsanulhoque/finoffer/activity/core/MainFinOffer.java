@@ -85,7 +85,7 @@ public class MainFinOffer extends AppCompatActivity {
         RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
         LinearLayoutManager brandLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         brandList.setLayoutManager(brandLayoutManager);
-        String[] heading = {"head1", "head2", "head3", "head4", "head5"};
+        String[] heading = {"Foody", "Mara", "Fossil", "Offerin", "Delux"};
         brandList.setAdapter(new BrandAdapter(heading));
 
         // for menu image click open drawer

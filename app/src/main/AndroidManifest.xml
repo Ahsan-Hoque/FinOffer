@@ -34,7 +34,11 @@
             android:name=".activity.core.ProductActivity"
             android:label="addProduct"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activity.core.ProductDetails"></activity>
+        <activity
+            android:name=".activity.core.ProductDetails"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
