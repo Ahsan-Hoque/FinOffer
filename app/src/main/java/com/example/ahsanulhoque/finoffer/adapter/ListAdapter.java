@@ -15,7 +15,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
     private String[] regPrices;
     private String[] newPrices;
     private String[] locations;
-    public ListAdapter(String[] names, String[] regPrices, String[] newPrices, String[] locations){
+
+    public ListAdapter(String[] names, String[] regPrices, String[] newPrices, String[] locations) {
         this.names = names;
         this.regPrices = regPrices;
         this.newPrices = newPrices;
@@ -46,7 +47,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
         return names.length;
     }
 
-    public class ItemListviewHolder extends RecyclerView.ViewHolder{
+    public class ItemListviewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title;
         TextView location;

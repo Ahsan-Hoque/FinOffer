@@ -12,7 +12,8 @@ import com.example.ahsanulhoque.finoffer.R;
 
 public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandListViewHolder> {
     private String[] data;
-    public BrandAdapter(String[]data){
+
+    public BrandAdapter(String[] data) {
         this.data = data;
     }
 
@@ -35,9 +36,10 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandListVie
         return data.length;
     }
 
-    public class BrandListViewHolder extends RecyclerView.ViewHolder{
+    public class BrandListViewHolder extends RecyclerView.ViewHolder {
         ImageView brandImg;
         TextView brandTitle;
+
         public BrandListViewHolder(View itemView) {
             super(itemView);
             brandTitle = (TextView) itemView.findViewById(R.id.brandTitle);

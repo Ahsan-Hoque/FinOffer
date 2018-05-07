@@ -1,8 +1,5 @@
-package com.example.ahsanulhoque.finoffer.landingpage;
+package com.example.ahsanulhoque.finoffer.json;
 
-/**
- * Created by ahsanulhoque on 25/04/2018.
- */
 
 public class Product {
     private String Title;

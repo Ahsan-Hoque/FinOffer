@@ -15,9 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ahsanulhoque.finoffer.activity.core.ProductDetails;
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.activity.core.MainFinOffer;
+import com.example.ahsanulhoque.finoffer.activity.core.ProductDetails;
 import com.example.ahsanulhoque.finoffer.utility.FormUtility;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -81,7 +81,7 @@ public class LogIn extends AppCompatActivity {
 
     }
 
-    public void updateStatusBarColor(String color){
+    public void updateStatusBarColor(String color) {
         // Color must be in hexadecimal format
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

@@ -21,10 +21,10 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.adapter.BrandAdapter;
-import com.example.ahsanulhoque.finoffer.adapter.ListAdapter;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogIn;
 import com.example.ahsanulhoque.finoffer.activity.authentication.SingOut;
+import com.example.ahsanulhoque.finoffer.adapter.BrandAdapter;
+import com.example.ahsanulhoque.finoffer.adapter.ListAdapter;
 import com.example.ahsanulhoque.finoffer.domain.Product;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

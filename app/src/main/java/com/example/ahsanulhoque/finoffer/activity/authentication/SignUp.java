@@ -203,7 +203,7 @@ public class SignUp extends AppCompatActivity {
             for (count = 1; count <= 5; count++) {
                 try {
                     Thread.sleep(500);
-                    publishProgress(20*count);
+                    publishProgress(20 * count);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

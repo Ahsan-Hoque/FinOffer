@@ -9,11 +9,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.domain.Merchant;
 import com.example.ahsanulhoque.finoffer.domain.Product;
 import com.example.ahsanulhoque.finoffer.service.ProductService;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    
+
     void addProduct() {
         String merchantId = null;
         String name = productName.getText().toString().trim();

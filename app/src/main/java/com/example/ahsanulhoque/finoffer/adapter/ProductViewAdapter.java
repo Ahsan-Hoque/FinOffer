@@ -1,20 +1,19 @@
-package com.example.ahsanulhoque.finoffer.landingpage;
+package com.example.ahsanulhoque.finoffer.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ahsanulhoque.finoffer.json.Product;
+
 import java.util.List;
 
-/**
- * Created by ahsanulhoque on 25/04/2018.
- */
 
 public class ProductViewAdapter extends RecyclerView.Adapter<ProductViewAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List <Product> mData;
+    private List<Product> mData;
 
     public ProductViewAdapter(Context mContext, List<Product> mData) {
         this.mContext = mContext;
@@ -36,7 +35,7 @@ public class ProductViewAdapter extends RecyclerView.Adapter<ProductViewAdapter.
         return 0;
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         public MyViewHolder(View itemView) {
             super(itemView);
         }
