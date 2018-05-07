@@ -37,7 +37,7 @@ tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetails">
             android:src="@drawable/productbig" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/ProductDTitleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/bgIMGV"
@@ -51,12 +51,12 @@ tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetails">
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/ProductDDetailsTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/ProductDTitleTV"
+            android:layout_alignStart="@+id/ProductDTitleTV"
+            android:layout_below="@+id/ProductDTitleTV"
             android:layout_marginTop="5dp"
             android:text="Check website for latest pricing and availability" />
 
@@ -65,13 +65,13 @@ tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetails">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/bgIMGV"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3"
+            android:layout_alignLeft="@+id/ProductDDetailsTV"
+            android:layout_alignStart="@+id/ProductDDetailsTV"
             android:layout_marginTop="15dp"
             android:src="@drawable/loationplaceholder" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/ProductDLocationTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/locationIMGV"
@@ -82,7 +82,7 @@ tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetails">
             android:text="Tokmani,Oulu" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/PDOldPriceTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/locationIMGV"
@@ -92,12 +92,12 @@ tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetails">
             android:text="€ 1.9" />
 
         <TextView
-            android:id="@+id/button2"
+            android:id="@+id/PDNewPriceTV"
             android:layout_width="64dp"
             android:layout_height="22dp"
-            android:layout_alignLeft="@+id/textView5"
-            android:layout_alignStart="@+id/textView5"
-            android:layout_alignTop="@+id/textView6"
+            android:layout_alignLeft="@+id/ProductDLocationTV"
+            android:layout_alignStart="@+id/ProductDLocationTV"
+            android:layout_alignTop="@+id/PDOldPriceTV"
             android:layout_marginLeft="15dp"
             android:background="@color/colorBrandOrange"
             android:text="€ 1.0"

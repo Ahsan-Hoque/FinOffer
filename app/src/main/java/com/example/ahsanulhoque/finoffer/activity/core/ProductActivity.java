@@ -149,6 +149,7 @@ public class ProductActivity extends AppCompatActivity {
                         new SingOutActivity().signOut();
                         Intent intentMain = new Intent(ProductActivity.this, LogInActivity.class);
                         startActivity(intentMain);
+                        finish();
                         break;
                 }
                 return false;

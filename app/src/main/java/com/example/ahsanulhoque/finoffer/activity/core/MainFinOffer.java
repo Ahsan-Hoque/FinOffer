@@ -133,6 +133,7 @@ public class MainFinOffer extends AppCompatActivity {
                         new SingOutActivity().signOut();
                         Intent intentMain = new Intent(MainFinOffer.this, LogInActivity.class);
                         startActivity(intentMain);
+                        finish();
                         break;
                 }
                 return false;

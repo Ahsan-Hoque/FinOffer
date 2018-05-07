@@ -35,8 +35,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ItemListviewHo
         String newPrice = String.valueOf(product.getPrice());
         String location = product.getLocation();
         holder.title.setText(title);
-        holder.regularPrice.setText(regPrice);
-        holder.price.setText(newPrice);
+        holder.regularPrice.setText("€" + regPrice);
+        holder.price.setText("€" + newPrice);
         holder.location.setText(location);
     }
 

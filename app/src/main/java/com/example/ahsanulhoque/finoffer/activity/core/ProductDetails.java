@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogInActivity;
@@ -29,6 +31,13 @@ public class ProductDetails extends AppCompatActivity {
 
     private Toolbar lTopToolbar;
 
+    ImageView image;
+    TextView title;
+    TextView details;
+    TextView location;
+    TextView regularPrice;
+    TextView price;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -38,6 +47,26 @@ public class ProductDetails extends AppCompatActivity {
         updateStatusBarColor("#EF6C00");
 
         Product product = (Product) getIntent().getSerializableExtra("product");
+
+        title = (TextView) findViewById(R.id.ProductDTitleTV);
+        details = (TextView) findViewById(R.id.ProductDDetailsTV);
+        image = (ImageView) findViewById(R.id.product1IV);
+        location = (TextView) findViewById(R.id.ProductDLocationTV);
+        regularPrice = (TextView) findViewById(R.id.PDOldPriceTV);
+        price = (TextView) findViewById(R.id.PDNewPriceTV);
+
+        String title1 = product.getName();
+        String regPrice = String.valueOf(product.getRegularPrice());
+        String newPrice = String.valueOf(product.getPrice());
+        String location1 = product.getLocation();
+        String details1 = product.getDescription();
+        title.setText(title1);
+        regularPrice.setText("€" + regPrice);
+        price.setText("€" + newPrice);
+        location.setText(location1);
+        details.setText(details1);
+
+
 
 
         //for drawer ode
@@ -87,6 +116,7 @@ public class ProductDetails extends AppCompatActivity {
                         new SingOutActivity().signOut();
                         Intent intentMain = new Intent(ProductDetails.this, LogInActivity.class);
                         startActivity(intentMain);
+                        finish();
                         break;
                 }
                 return false;
