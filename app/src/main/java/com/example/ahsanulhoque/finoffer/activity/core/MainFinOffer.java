@@ -140,10 +140,6 @@ public class MainFinOffer extends AppCompatActivity {
     }
 
     private class TitleLoadingTask extends AsyncTask<Void, Integer, Void> {
-        /*private ArrayList<String> names;
-        private ArrayList<String> locations;
-        private ArrayList<String> regPrices;
-        private ArrayList<String> newPrices;*/
         private List<Product> productList;
 
         @Override
@@ -153,14 +149,6 @@ public class MainFinOffer extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
             progressBar.setMax(100);
             progressBar.setProgress(0);
-            /*names = null;
-            locations = null;
-            regPrices = null;
-            newPrices = null;*/
-            /*names = new ArrayList<>();
-            locations = new ArrayList<>();
-            regPrices = new ArrayList<>();
-            newPrices = new ArrayList<>();*/
             productList = new ArrayList<>();
         }
 
@@ -174,10 +162,6 @@ public class MainFinOffer extends AppCompatActivity {
                         for (DataSnapshot issue : dataSnapshot.getChildren()) {
                             // do something with the individual "issues"
                             Product product = issue.getValue(Product.class);
-                            /*names.add(product.getName());
-                            locations.add(product.getLocation());
-                            regPrices.add(String.valueOf("$ " + product.getRegularPrice()));
-                            newPrices.add(String.valueOf("$ " + product.getPrice()));*/
                             productList.add(product);
                         }
                     }
@@ -212,15 +196,6 @@ public class MainFinOffer extends AppCompatActivity {
             super.onPostExecute(aVoid);
             // progress bar
             progressBar.setVisibility(View.GONE);
-            /*String[] productNames = new String[names.size()];
-            String[] localStores = new String[locations.size()];
-            String[] productRegPrc = new String[regPrices.size()];
-            String[] productNewPrc = new String[newPrices.size()];
-            productNames = names.toArray(productNames);
-            localStores = locations.toArray(localStores);
-            productRegPrc = regPrices.toArray(productRegPrc);
-            productNewPrc = newPrices.toArray(productNewPrc);
-            itemList.setAdapter(new ListAdapter(productNames, productRegPrc, productNewPrc, localStores));*/
             itemList.setAdapter(new ListAdapter(productList));
         }
     }
