@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class LogIn extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity {
 
     private EditText EmailET;
     private EditText PassET;
@@ -56,7 +56,7 @@ public class LogIn extends AppCompatActivity {
         SignUPTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogIn.this, SignUp.class);
+                Intent intent = new Intent(LogInActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
 
@@ -65,7 +65,7 @@ public class LogIn extends AppCompatActivity {
         LogBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intentMain = new Intent(LogIn.this, MainFinOffer.class);
+                /*Intent intentMain = new Intent(LogInActivity.this, MainFinOffer.class);
                 startActivity(intentMain);*/
                 signIn(EmailET.getText().toString().trim(), PassET.getText().toString().trim());
             }
@@ -74,7 +74,7 @@ public class LogIn extends AppCompatActivity {
         ForgotPassTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogIn.this, ProductDetails.class);
+                Intent intent = new Intent(LogInActivity.this, ProductDetails.class);
                 startActivity(intent);
             }
         });
@@ -123,7 +123,7 @@ public class LogIn extends AppCompatActivity {
             // redirect to landing page
             EmailET.setText("");
             PassET.setText("");
-            Intent intentMain = new Intent(LogIn.this, MainFinOffer.class);
+            Intent intentMain = new Intent(LogInActivity.this, MainFinOffer.class);
             startActivity(intentMain);
 
         } else {
@@ -151,7 +151,7 @@ public class LogIn extends AppCompatActivity {
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(LogIn.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LogInActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
                         // [END_EXCLUDE]

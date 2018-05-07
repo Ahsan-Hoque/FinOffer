@@ -33,7 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Date;
 
 
-public class SignUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     private EditText firstNameET;
     private EditText lastNameET;
@@ -98,7 +98,7 @@ public class SignUp extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             // redirect to landing page
-            Intent intentMain = new Intent(SignUp.this, MainFinOffer.class);
+            Intent intentMain = new Intent(SignUpActivity.this, MainFinOffer.class);
             startActivity(intentMain);
         } else {
             // do something!
@@ -161,7 +161,7 @@ public class SignUp extends AppCompatActivity {
                 } else {
                     FirebaseAuthException e = (FirebaseAuthException) task.getException();
                     e.printStackTrace();
-                    Toast.makeText(SignUp.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     updateUI(null);
                 }
             }

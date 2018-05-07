@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class SingOut extends AppCompatActivity {
+public class SingOutActivity extends AppCompatActivity {
 
     public void signOut() {
         FirebaseAuth.getInstance().signOut();
