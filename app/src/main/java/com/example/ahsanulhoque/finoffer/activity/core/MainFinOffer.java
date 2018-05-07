@@ -133,6 +133,11 @@ public class MainFinOffer extends AppCompatActivity {
                         startActivity(k);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
+                    case R.id.about:
+                        Intent l = new Intent(MainFinOffer.this, AboutActivity.class);
+                        startActivity(l);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here

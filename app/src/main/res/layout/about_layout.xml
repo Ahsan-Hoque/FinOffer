@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahsanulhoque.finoffer.activity.core.FaqActivity">
+    <include layout="@layout/custom_tool_bar"></include>
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="90dp"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/abtTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:text="Welcome to FinOffer App!!"
+            android:padding="15dp"
+            android:textAlignment="center"/>
+
+
+        <TextView
+            android:id="@+id/abt1TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/abtTV"
+            android:layout_marginTop="20dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:lines="4"
+            android:text="This is a app where user can add three categories of product as follows: Electronics, Food and Clothing. User will find a minimum feature in this version. In the next version user will find several features for example searching, notification, location and different types of user rile will be defined in the next release."
+            android:textAlignment="center"
+            android:gravity="fill_horizontal"/>
+
+        <TextView
+            android:id="@+id/abt2TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/abt1TV"
+            android:background="@color/colorBrandOrange"
+            android:textColor="@color/colorPrimaryWhite"
+            android:text="We are three member team working in this project as follows:"
+            android:padding="15dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/abt3TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/abt2TV"
+            android:layout_marginTop="20dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="Johirul Islam  Email: jislam@student.oulu.fi "
+            android:gravity="fill_horizontal"/>
+        <TextView
+            android:id="@+id/abt4TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/abt3TV"
+            android:layout_marginTop="20dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="Md Ahsanul Hoque  Email: ahsan.ror@gmail.com "
+            android:gravity="fill_horizontal"/>
+        <TextView
+            android:id="@+id/abt5TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/abt4TV"
+            android:layout_marginTop="20dp"
+            android:background="#d2d2d2"
+            android:textColor="#000000"
+            android:paddingLeft="15dp"
+            android:text="Md Atikur Rahman Email: atik85cse@gmail.com "
+            android:gravity="fill_horizontal"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

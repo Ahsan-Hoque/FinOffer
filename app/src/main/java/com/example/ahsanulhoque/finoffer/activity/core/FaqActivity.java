@@ -84,6 +84,11 @@ public class FaqActivity extends AppCompatActivity {
                         // add navigation drawer item onclick method here
                         //Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
+                    case R.id.about:
+                        Intent l = new Intent(FaqActivity.this, AboutActivity.class);
+                        startActivity(l);
+                        mDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here

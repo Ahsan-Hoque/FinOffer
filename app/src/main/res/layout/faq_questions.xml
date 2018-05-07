@@ -54,7 +54,7 @@
             android:background="#d2d2d2"
             android:textColor="#000000"
             android:paddingLeft="15dp"
-            android:text="You can click add product form left drwaer. " />
+            android:text="You can click add product from left drawer. " />
 
         <TextView
             android:id="@+id/textView4"
@@ -106,7 +106,7 @@
             android:background="#d2d2d2"
             android:textColor="#000000"
             android:paddingLeft="15dp"
-            android:text="Search is not added yet. You can findit in the next version." />
+            android:text="Search is not added yet. You will find it in the next version." />
 
         <TextView
             android:id="@+id/faq6TV"
@@ -132,7 +132,7 @@
             android:background="#d2d2d2"
             android:textColor="#000000"
             android:paddingLeft="15dp"
-            android:text="You will get new item notificatin through the con in the next version." />
+            android:text="You will get new item notificatin through the icon in the next version." />
 
         <TextView
             android:id="@+id/faq8TV"

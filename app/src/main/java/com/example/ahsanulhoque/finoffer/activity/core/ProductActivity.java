@@ -148,6 +148,11 @@ public class ProductActivity extends AppCompatActivity {
                         startActivity(k);
                         pDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
+                    case R.id.about:
+                        Intent l = new Intent(ProductActivity.this, AboutActivity.class);
+                        startActivity(l);
+                        pDrawerlayout.closeDrawer(Gravity.LEFT);
+                        break;
                     case R.id.lgot:
                         //Do some thing here
                         // add navigation drawer item onclick method here
