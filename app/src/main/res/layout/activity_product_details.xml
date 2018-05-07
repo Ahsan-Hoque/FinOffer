@@ -1,180 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBaseWhite"
-    tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetails">
+    tools:openDrawer="start">
 
-    <include layout="@layout/custom_tool_bar"></include>
-
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <RelativeLayout
-        android:id="@id/pDetailsArea"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/product_details_layout" />
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navVW"
+        app:headerLayout="@layout/drawerheader"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimaryWhite"
-        tools:layout_editor_absoluteX="8dp"
-        android:padding="4dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:layout_marginTop="80dp">
+        app:itemTextColor="#000000"
+        app:itemIconTint="@color/colorPrimaryDark"
+        app:menu="@menu/drawermenu"
+        android:layout_gravity="start"/>
 
-        <ImageView
-            android:id="@+id/bgIMGV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="0dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/productbig" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/bgIMGV"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/bgIMGV"
-            android:layout_toRightOf="@+id/bgIMGV"
-            android:text="FRESH PIZZA"
-            android:textColor="@color/colorBrandOrange"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="5dp"
-            android:text="Check website for latest pricing and availability" />
-
-        <ImageView
-            android:id="@+id/locationIMGV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/bgIMGV"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/loationplaceholder" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/locationIMGV"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="25dp"
-            android:layout_toEndOf="@+id/locationIMGV"
-            android:layout_toRightOf="@+id/locationIMGV"
-            android:text="Tokmani,Oulu" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/locationIMGV"
-            android:layout_alignStart="@+id/locationIMGV"
-            android:layout_below="@+id/locationIMGV"
-            android:layout_marginTop="15dp"
-            android:text="€ 1.9" />
-
-        <TextView
-            android:id="@+id/button2"
-            android:layout_width="64dp"
-            android:layout_height="22dp"
-            android:layout_alignLeft="@+id/textView5"
-            android:layout_alignStart="@+id/textView5"
-            android:layout_alignTop="@+id/textView6"
-            android:layout_marginLeft="15dp"
-            android:background="@color/colorBrandOrange"
-            android:text="€ 1.0"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryWhite" />
-
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="140dp"
-           android:layout_marginBottom="10dp"
-           android:layout_marginLeft="15dp">
-
-           <ImageView
-               android:id="@+id/smllIMGV1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:src="@drawable/productpg"/>
-
-           <ImageView
-               android:id="@+id/smllIMGV2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginLeft="45dp"
-               android:src="@drawable/productpg"/>
-
-           <ImageView
-               android:id="@+id/smllIMGV3"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginLeft="90dp"
-               android:src="@drawable/productpg"/>
-       </RelativeLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@id/samiProduct"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_below="@id/pDetailsArea"
-        android:padding="4dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="206dp">
-
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="SIMILAR PRODUCTS"
-            android:textColor="@color/colorText"
-            android:textSize="15dp" />
-        <View
-            android:layout_width="150dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="150dp"
-
-            android:background="#c0c0c0"/>
-    </RelativeLayout>
-
-</RelativeLayout>
-    <!---->
-
-    <!--<RelativeLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="280dp">-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Similar Products"-->
-            <!--/>-->
-    <!--</RelativeLayout>-->
-
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.DrawerLayout>
