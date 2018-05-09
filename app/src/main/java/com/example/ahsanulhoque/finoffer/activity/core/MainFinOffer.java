@@ -19,7 +19,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogInActivity;
@@ -35,7 +34,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,10 +47,13 @@ public class MainFinOffer extends AppCompatActivity {
     private Toolbar lTopToolbar;
 
     private RecyclerView itemListRecyclerView;
+    private RecyclerView brandListRecyclerView;
 
     // progress bar
-    private Integer count;
-    private ProgressBar progressBar;
+    private Integer itemCount;
+    private Integer brandCount;
+    private ProgressBar itemListProgressBar;
+    private ProgressBar brandListProgressBar;
 
     // firebase db
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("products");
@@ -75,19 +76,22 @@ public class MainFinOffer extends AppCompatActivity {
         lTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(lTopToolbar);
 
-        progressBar = (ProgressBar) findViewById(R.id.itemListProgressBar);
-        progressBar.setVisibility(View.INVISIBLE);
+        // progressbar
+        itemListProgressBar = (ProgressBar) findViewById(R.id.itemListProgressBar);
+        itemListProgressBar.setVisibility(View.INVISIBLE);
+        brandListProgressBar = (ProgressBar) findViewById(R.id.brandListProgressBar);
+        brandListProgressBar.setVisibility(View.INVISIBLE);
 
         //recycler view
         itemListRecyclerView = (RecyclerView) findViewById(R.id.itemlist);
         itemListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        new TitleLoadingTask().execute();
+        new ItemListLoadingTask().execute();
 
-        RecyclerView brandList = (RecyclerView) findViewById(R.id.brandList);
+        brandListRecyclerView = (RecyclerView) findViewById(R.id.brandList);
         LinearLayoutManager brandLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        brandList.setLayoutManager(brandLayoutManager);
-        String[] heading = {"Foody", "Mara", "Fossil", "Offerin", "Delux"};
-        brandList.setAdapter(new BrandAdapter(heading));
+        brandListRecyclerView.setLayoutManager(brandLayoutManager);
+        new BrandListLoadingTask().execute();
+
 
         // for menu image click open drawer
         ImageButton menuBTN = (ImageButton) findViewById(R.id.menuBTN);
@@ -153,16 +157,16 @@ public class MainFinOffer extends AppCompatActivity {
 
     }
 
-    private class TitleLoadingTask extends AsyncTask<Void, Integer, Void> {
+    private class ItemListLoadingTask extends AsyncTask<Void, Integer, Void> {
         private List<Product> productList;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             // progress bar
-            progressBar.setVisibility(View.VISIBLE);
-            progressBar.setMax(100);
-            progressBar.setProgress(0);
+            itemListProgressBar.setVisibility(View.VISIBLE);
+            itemListProgressBar.setProgress(0);
+            itemListProgressBar.setMax(100);
             productList = new ArrayList<>();
         }
 
@@ -187,10 +191,10 @@ public class MainFinOffer extends AppCompatActivity {
                 }
             });
             // progress bar
-            for (count = 1; count <= 5; count++) {
+            for (itemCount = 1; itemCount <= 5; itemCount++) {
                 try {
                     Thread.sleep(500);
-                    publishProgress(20 * count);
+                    publishProgress(20 * itemCount);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -202,14 +206,14 @@ public class MainFinOffer extends AppCompatActivity {
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
             // progress bar
-            progressBar.setProgress(values[0]);
+            itemListProgressBar.setProgress(values[0]);
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            // progress bar
-            progressBar.setVisibility(View.GONE);
+            // progressbar
+            itemListProgressBar.setVisibility(View.GONE);
             itemListRecyclerView.setAdapter(new ListAdapter(productList));
             itemListRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), itemListRecyclerView, new RecyclerTouchListener.ClickListener() {
                 @Override
@@ -225,6 +229,49 @@ public class MainFinOffer extends AppCompatActivity {
 
                 }
             }));
+        }
+    }
+
+    private class BrandListLoadingTask extends AsyncTask<Void, Integer, Void> {
+
+        String[] heading = {"Foody", "Mara", "Fossil", "Offerin", "Delux"};
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            brandListProgressBar.setVisibility(View.VISIBLE);
+            brandListProgressBar.setProgress(0);
+            brandListProgressBar.setMax(100);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            // progressbar
+            for (brandCount = 1; brandCount <= 5; brandCount++) {
+                try {
+                    Thread.sleep(500);
+                    publishProgress(20 * brandCount);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            // progress bar
+            brandListProgressBar.setProgress(values[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            // progress bar
+            brandListProgressBar.setVisibility(View.GONE);
+            brandListRecyclerView.setAdapter(new BrandAdapter(heading));
+
         }
     }
 
