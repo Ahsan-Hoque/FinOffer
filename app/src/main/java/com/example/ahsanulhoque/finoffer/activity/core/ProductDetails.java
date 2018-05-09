@@ -1,7 +1,11 @@
 package com.example.ahsanulhoque.finoffer.activity.core;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -9,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +27,8 @@ import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogInActivity;
 import com.example.ahsanulhoque.finoffer.activity.authentication.SingOutActivity;
 import com.example.ahsanulhoque.finoffer.domain.Product;
+
+import java.io.InputStream;
 
 public class ProductDetails extends AppCompatActivity {
 
@@ -50,7 +57,7 @@ public class ProductDetails extends AppCompatActivity {
 
         title = (TextView) findViewById(R.id.ProductDTitleTV);
         details = (TextView) findViewById(R.id.ProductDDetailsTV);
-        image = (ImageView) findViewById(R.id.product1IV);
+        image = (ImageView) findViewById(R.id.bgIMGV);
         location = (TextView) findViewById(R.id.ProductDLocationTV);
         regularPrice = (TextView) findViewById(R.id.PDOldPriceTV);
         price = (TextView) findViewById(R.id.PDNewPriceTV);
@@ -60,14 +67,16 @@ public class ProductDetails extends AppCompatActivity {
         String newPrice = String.valueOf(product.getPrice());
         String location1 = product.getLocation();
         String details1 = product.getDescription();
+
         title.setText(title1);
         regularPrice.setText("€" + regPrice);
         price.setText("€" + newPrice);
         location.setText(location1);
         details.setText(details1);
-
-
-
+        if (!TextUtils.isEmpty(product.getImageUrl())) {
+            new DownloadImageTask(image, 160, 120).execute(product.getImageUrl());
+            //image.setImageURI(Uri.parse(product.getImageUrl()));
+        }
 
         //for drawer ode
         mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -140,6 +149,33 @@ public class ProductDetails extends AppCompatActivity {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor(color));
+        }
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+        int height, width;
+
+        public DownloadImageTask(ImageView bmImage, int height, int width) {
+            this.bmImage = bmImage;
+            this.height = height;
+            this.width = width;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(Bitmap.createScaledBitmap(result, this.height, this.width, false));
         }
     }
 }

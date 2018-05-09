@@ -1,10 +1,15 @@
 package com.example.ahsanulhoque.finoffer.activity.core;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -29,9 +34,18 @@ import com.example.ahsanulhoque.finoffer.R;
 import com.example.ahsanulhoque.finoffer.activity.authentication.LogInActivity;
 import com.example.ahsanulhoque.finoffer.activity.authentication.SingOutActivity;
 import com.example.ahsanulhoque.finoffer.domain.Product;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
+import java.util.UUID;
 
 
 public class ProductActivity extends AppCompatActivity {
@@ -57,8 +71,16 @@ public class ProductActivity extends AppCompatActivity {
     private Integer count;
     private ProgressBar progressBar;
 
+    // file upload
+    private Uri filePath;
+    private final int PICK_IMAGE_REQUEST = 71;
+    private Uri imageFullUri;
+
     // firebase db
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("products");
+
+    // Firebase storage
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference("product");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +113,16 @@ public class ProductActivity extends AppCompatActivity {
         editTextPrice = (EditText) findViewById(R.id.price);
         location = (EditText) findViewById(R.id.location);
 
-        imageView = null;
-        buttonAddImage = null;
+        imageView = findViewById(R.id.imageView);
+        imageFullUri = null;
+        buttonAddImage = (Button) findViewById(R.id.addImage);
+        buttonAddImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // choose & upload image
+                chooseImage();
+            }
+        });
 
         progressBar = (ProgressBar) findViewById(R.id.addProductProgressBar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -111,6 +141,9 @@ public class ProductActivity extends AppCompatActivity {
                 String localStore = location.getText().toString();
                 String productTypeId = null;
                 Product product = new Product(merchantId, name, price, description, discountRate, regularPrc, items, localStore, productTypeId);
+                if (imageFullUri != null) {
+                    product.setImageUrl(imageFullUri.toString());
+                }
                 new AddProductTask().execute(product);
             }
         });
@@ -286,5 +319,63 @@ public class ProductActivity extends AppCompatActivity {
         discountIn.setText("");
         editTextPrice.setText("");
         location.setText("");
+        imageView.setImageBitmap(null);
+        imageFullUri = null;
+    }
+
+    private void uploadImage() {
+        if(filePath != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = storageReference.child(UUID.randomUUID().toString());
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ProductActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            imageFullUri = taskSnapshot.getDownloadUrl();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ProductActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
+    }
+
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null ) {
+            filePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                imageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            uploadImage();
+        }
     }
 }

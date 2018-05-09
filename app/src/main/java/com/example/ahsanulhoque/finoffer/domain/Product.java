@@ -15,6 +15,7 @@ public class Product implements Serializable{
     private String items;
     private String location;
     private String productTypeId;
+    private String imageUrl;
 
     public Product() {
     }
@@ -124,6 +125,14 @@ public class Product implements Serializable{
         this.productTypeId = productTypeId;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -137,6 +146,7 @@ public class Product implements Serializable{
                 ", items='" + items + '\'' +
                 ", location='" + location + '\'' +
                 ", productTypeId=" + productTypeId +
+                ", imageUrl=" + imageUrl +
                 '}';
     }
 
