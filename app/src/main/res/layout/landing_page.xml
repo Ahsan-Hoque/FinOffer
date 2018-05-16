@@ -6,30 +6,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimaryBack">
 
-    <include layout="@layout/custom_tool_bar"></include>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/itemlist"
-        android:layout_width="wrap_content"
-        android:orientation="vertical"
-        android:layout_height="300dp"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
-        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        />
+    <include
+        android:id="@+id/include"
+        layout="@layout/custom_tool_bar"></include>
 
     <ProgressBar
         android:id="@+id/itemListProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/itemlist"
-        android:layout_alignStart="@+id/itemlist"
+        android:layout_alignEnd="@+id/itemlist"
         android:layout_alignLeft="@+id/itemlist"
         android:layout_alignRight="@+id/itemlist"
-        android:layout_alignEnd="@+id/itemlist"
+        android:layout_alignStart="@+id/itemlist"
+        android:layout_below="@+id/my_toolbar"
         android:layout_marginTop="10dp"
+        android:ems="15"
         android:theme="@style/AppTheme.AccentActionBar"
-        android:ems="15"/>
+        app:layout_constraintBottom_toBottomOf="@+id/my_toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/itemlist"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toBottomOf="@+id/itemListProgressBar"
+        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        />
 
     <RelativeLayout
         android:id="@+id/midLine"
@@ -57,28 +61,29 @@
 
     </RelativeLayout>
 
+    <ProgressBar
+        android:id="@+id/brandListProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/midLine"
+        android:layout_alignStart="@+id/brandList"
+        android:layout_alignLeft="@+id/brandList"
+        android:layout_alignRight="@+id/brandList"
+        android:layout_alignEnd="@+id/brandList"
+        android:layout_marginTop="10dp"
+        android:ems="15"
+        app:layout_constraintTop_toBottomOf="@+id/midLine"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/brandList"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/midLine"
+        app:layout_constraintTop_toBottomOf="@+id/brandListProgressBar"
         tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
         android:layout_marginTop="15dp" />
-
-    <ProgressBar
-        android:id="@+id/brandListProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/brandList"
-        android:layout_alignStart="@+id/brandList"
-        android:layout_alignLeft="@+id/brandList"
-        android:layout_alignRight="@+id/brandList"
-        android:layout_alignEnd="@+id/brandList"
-        android:layout_marginTop="10dp"
-        android:ems="15"/>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/footerView"

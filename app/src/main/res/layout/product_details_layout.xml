@@ -4,7 +4,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@color/colorBaseWhite"
-tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetails">
+tools:context="com.example.ahsanulhoque.finoffer.activity.core.ProductDetailsActivity">
 
 <include layout="@layout/custom_tool_bar"></include>
 

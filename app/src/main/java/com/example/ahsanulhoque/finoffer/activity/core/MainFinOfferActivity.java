@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainFinOffer extends AppCompatActivity {
+public class MainFinOfferActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
@@ -123,22 +123,22 @@ public class MainFinOffer extends AppCompatActivity {
                     case R.id.addPRD:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Intent i = new Intent(MainFinOffer.this, ProductActivity.class);
+                        Intent i = new Intent(MainFinOfferActivity.this, AddProductActivity.class);
                         startActivity(i);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.dash:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        //Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainFinOfferActivity.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.faq:
-                        Intent k = new Intent(MainFinOffer.this, FaqActivity.class);
+                        Intent k = new Intent(MainFinOfferActivity.this, FaqActivity.class);
                         startActivity(k);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.about:
-                        Intent l = new Intent(MainFinOffer.this, AboutActivity.class);
+                        Intent l = new Intent(MainFinOfferActivity.this, AboutActivity.class);
                         startActivity(l);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
@@ -146,7 +146,7 @@ public class MainFinOffer extends AppCompatActivity {
                         //Do some thing here
                         // add navigation drawer item onclick method here
                         new SingOutActivity().signOut();
-                        Intent intentMain = new Intent(MainFinOffer.this, LogInActivity.class);
+                        Intent intentMain = new Intent(MainFinOfferActivity.this, LogInActivity.class);
                         startActivity(intentMain);
                         finish();
                         break;
@@ -219,7 +219,7 @@ public class MainFinOffer extends AppCompatActivity {
                 @Override
                 public void onClick(View view, int position) {
                     Product product = productList.get(position);
-                    Intent productDetailsIntent = new Intent(MainFinOffer.this, ProductDetails.class);
+                    Intent productDetailsIntent = new Intent(MainFinOfferActivity.this, ProductDetailsActivity.class);
                     productDetailsIntent.putExtra("product", product);
                     startActivity(productDetailsIntent);
                 }

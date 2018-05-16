@@ -21,23 +21,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.core.MainActivity"
-            android:label="merchant"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
             android:name=".activity.authentication.SignUpActivity"
             android:label="signUp"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".activity.core.MainFinOffer"
+            android:name=".activity.core.MainFinOfferActivity"
             android:label="landingPage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.core.ProductActivity"
+            android:name=".activity.core.AddProductActivity"
             android:label="addProduct"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.core.ProductDetails"
+            android:name=".activity.core.ProductDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.core.FaqActivity"

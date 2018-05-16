@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.activity.core.MainFinOffer;
+import com.example.ahsanulhoque.finoffer.activity.core.MainFinOfferActivity;
 import com.example.ahsanulhoque.finoffer.utility.FormUtility;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -119,7 +119,7 @@ public class LogInActivity extends AppCompatActivity {
             // redirect to landing page
             EmailET.setText("");
             PassET.setText("");
-            Intent intentMain = new Intent(LogInActivity.this, MainFinOffer.class);
+            Intent intentMain = new Intent(LogInActivity.this, MainFinOfferActivity.class);
             startActivity(intentMain);
 
         } else {

@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.ahsanulhoque.finoffer.R;
-import com.example.ahsanulhoque.finoffer.activity.core.MainFinOffer;
+import com.example.ahsanulhoque.finoffer.activity.core.MainFinOfferActivity;
 import com.example.ahsanulhoque.finoffer.domain.UserProfile;
 import com.example.ahsanulhoque.finoffer.utility.FormUtility;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -98,7 +98,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             // redirect to landing page
-            Intent intentMain = new Intent(SignUpActivity.this, MainFinOffer.class);
+            Intent intentMain = new Intent(SignUpActivity.this, MainFinOfferActivity.class);
             startActivity(intentMain);
         } else {
             // do something!

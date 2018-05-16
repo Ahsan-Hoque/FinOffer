@@ -48,7 +48,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 
-public class ProductActivity extends AppCompatActivity {
+public class AddProductActivity extends AppCompatActivity {
 
     // drawer fields
     private Toolbar lTopToolbar;
@@ -167,22 +167,22 @@ public class ProductActivity extends AppCompatActivity {
                     case R.id.dash:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Intent i = new Intent(ProductActivity.this, MainFinOffer.class);
+                        Intent i = new Intent(AddProductActivity.this, MainFinOfferActivity.class);
                         startActivity(i);
                         pDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.addPRD:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        //Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainFinOfferActivity.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.faq:
-                        Intent k = new Intent(ProductActivity.this, FaqActivity.class);
+                        Intent k = new Intent(AddProductActivity.this, FaqActivity.class);
                         startActivity(k);
                         pDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.about:
-                        Intent l = new Intent(ProductActivity.this, AboutActivity.class);
+                        Intent l = new Intent(AddProductActivity.this, AboutActivity.class);
                         startActivity(l);
                         pDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
@@ -190,7 +190,7 @@ public class ProductActivity extends AppCompatActivity {
                         //Do some thing here
                         // add navigation drawer item onclick method here
                         new SingOutActivity().signOut();
-                        Intent intentMain = new Intent(ProductActivity.this, LogInActivity.class);
+                        Intent intentMain = new Intent(AddProductActivity.this, LogInActivity.class);
                         startActivity(intentMain);
                         finish();
                         break;
@@ -305,9 +305,9 @@ public class ProductActivity extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
             if (isAdded) {
                 clearAddProductFields();
-                Toast.makeText(ProductActivity.this, "Added Successfully!", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddProductActivity.this, "Added Successfully!", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(ProductActivity.this, "Unable To Add!", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddProductActivity.this, "Unable To Add!", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -336,7 +336,7 @@ public class ProductActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
-                            Toast.makeText(ProductActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddProductActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
                             imageFullUri = taskSnapshot.getDownloadUrl();
                         }
                     })
@@ -344,7 +344,7 @@ public class ProductActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             progressDialog.dismiss();
-                            Toast.makeText(ProductActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddProductActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

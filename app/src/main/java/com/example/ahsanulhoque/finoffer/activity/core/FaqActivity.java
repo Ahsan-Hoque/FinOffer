@@ -70,19 +70,19 @@ public class FaqActivity extends AppCompatActivity {
                     case R.id.addPRD:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Intent i = new Intent(FaqActivity.this, ProductActivity.class);
+                        Intent i = new Intent(FaqActivity.this, AddProductActivity.class);
                         startActivity(i);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.dash:
-                        Intent j = new Intent(FaqActivity.this, MainFinOffer.class);
+                        Intent j = new Intent(FaqActivity.this, MainFinOfferActivity.class);
                         startActivity(j);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.faq:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        //Toast.makeText(MainFinOffer.this, "Hello", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainFinOfferActivity.this, "Hello", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.about:
                         Intent l = new Intent(FaqActivity.this, AboutActivity.class);

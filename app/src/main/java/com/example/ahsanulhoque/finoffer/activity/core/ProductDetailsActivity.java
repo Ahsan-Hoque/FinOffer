@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,7 +29,7 @@ import com.example.ahsanulhoque.finoffer.domain.Product;
 
 import java.io.InputStream;
 
-public class ProductDetails extends AppCompatActivity {
+public class ProductDetailsActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
@@ -110,22 +109,22 @@ public class ProductDetails extends AppCompatActivity {
                     case R.id.addPRD:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Intent i = new Intent(ProductDetails.this, ProductActivity.class);
+                        Intent i = new Intent(ProductDetailsActivity.this, AddProductActivity.class);
                         startActivity(i);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.dash:
-                        Intent j = new Intent(ProductDetails.this, MainFinOffer.class);
+                        Intent j = new Intent(ProductDetailsActivity.this, MainFinOfferActivity.class);
                         startActivity(j);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.faq:
-                        Intent k = new Intent(ProductDetails.this, FaqActivity.class);
+                        Intent k = new Intent(ProductDetailsActivity.this, FaqActivity.class);
                         startActivity(k);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.about:
-                        Intent l = new Intent(ProductDetails.this, AboutActivity.class);
+                        Intent l = new Intent(ProductDetailsActivity.this, AboutActivity.class);
                         startActivity(l);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
@@ -133,7 +132,7 @@ public class ProductDetails extends AppCompatActivity {
                         //Do some thing here
                         // add navigation drawer item onclick method here
                         new SingOutActivity().signOut();
-                        Intent intentMain = new Intent(ProductDetails.this, LogInActivity.class);
+                        Intent intentMain = new Intent(ProductDetailsActivity.this, LogInActivity.class);
                         startActivity(intentMain);
                         finish();
                         break;

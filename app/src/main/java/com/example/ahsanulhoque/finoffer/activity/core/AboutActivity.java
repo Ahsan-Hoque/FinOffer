@@ -68,12 +68,12 @@ public class AboutActivity extends AppCompatActivity {
                     case R.id.addPRD:
                         //Do some thing here
                         // add navigation drawer item onclick method here
-                        Intent i = new Intent(AboutActivity.this, ProductActivity.class);
+                        Intent i = new Intent(AboutActivity.this, AddProductActivity.class);
                         startActivity(i);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
                     case R.id.dash:
-                        Intent j = new Intent(AboutActivity.this, MainFinOffer.class);
+                        Intent j = new Intent(AboutActivity.this, MainFinOfferActivity.class);
                         startActivity(j);
                         mDrawerlayout.closeDrawer(Gravity.LEFT);
                         break;
